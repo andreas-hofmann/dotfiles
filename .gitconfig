@@ -1,0 +1,28 @@
+[color]
+	ui = auto
+[user]
+	email = git@andreas-hofmann.org
+	name = Andreas Hofmann
+[push]
+	default = simple
+[core]
+	editor = vim
+[log]
+	decorate = auto
+[credential]
+	helper = cache
+[diff]
+	tool = meld
+[difftool]
+	prompt = false
+[difftool "meld"]
+	cmd = meld "$LOCAL" "$REMOTE"
+[merge]
+	tool = meld
+[mergetool "meld"]
+	cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
+	# cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
+[pull]
+	rebase = false
+
+# vim: set ts=8 noet :

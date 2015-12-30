@@ -1,0 +1,471 @@
+[ActivityManager][Global Shortcuts]
+switch-to-activity-ffffffff-ffff-4fff-bfff-ffffffffffff=
+
+[KDE Keyboard Layout Switcher][Global Shortcuts]
+Switch keyboard layout to neoqwertz=
+Switch to Next Keyboard Layout=
+
+[StandardShortcuts]
+AboutApp=
+AboutKDE=
+Activate Next Tab=Ctrl+PgDown; Ctrl+]
+Activate Previous Tab=Ctrl+[; Ctrl+PgUp
+ActualSize=Ctrl+0
+AddBookmark=Ctrl+B
+Back=Back; Alt+Left
+BackwardWord=Ctrl+Left
+Begin=Ctrl+Home
+BeginningOfLine=Home
+Clear=
+Close=Ctrl+Esc; Ctrl+W
+ConfigureNotifications=
+ConfigureToolbars=
+Copy=Ctrl+Ins; Ctrl+C
+CreateFolder=F10
+Cut=Shift+Del; Ctrl+X
+DeleteFile=Shift+Del
+DeleteWordBack=Ctrl+Backspace
+DeleteWordForward=Ctrl+Del
+Deselect=Ctrl+Shift+A
+DocumentBack=Alt+Shift+Left
+DocumentForward=Alt+Shift+Right
+Donate=
+EditBookmarks=
+End=Ctrl+End
+EndOfLine=End
+Find=Ctrl+F
+FindNext=F3
+FindPrev=Shift+F3
+FitToHeight=
+FitToPage=
+FitToWidth=
+Forward=Forward; Alt+Right
+ForwardWord=Ctrl+Right
+FullScreen=Ctrl+Shift+F
+Goto=
+GotoLine=Ctrl+G
+GotoPage=
+Help=F1
+Home=Alt+Home; Home Page
+KeyBindings=Ctrl+Alt+,
+Mail=
+MoveToTrash=Del
+New=Ctrl+N
+Next=PgDown
+NextCompletion=Ctrl+Down
+Open=Ctrl+O
+OpenRecent=
+Paste=Shift+Ins; Ctrl+V
+Paste Selection=Ctrl+Shift+Ins
+Preferences=Ctrl+Shift+,
+PrevCompletion=Ctrl+Up
+Print=Ctrl+P
+PrintPreview=
+Prior=PgUp
+Quit=Ctrl+Q
+Redo=Ctrl+Shift+Z
+Reload=Refresh; F5
+RenameFile=F2
+Replace=Ctrl+R
+ReportBug=
+Revert=
+RotateDown=Down
+RotateUp=Up
+Save=Ctrl+S
+SaveAs=Ctrl+Shift+S
+SaveOptions=
+SelectAll=Ctrl+A
+ShowHideHiddenFiles=Ctrl+H; Alt+.
+ShowMenubar=Ctrl+M
+ShowStatusbar=
+ShowToolbar=
+Spelling=
+SubstringCompletion=Ctrl+T
+SwitchApplicationLanguage=
+TextCompletion=Ctrl+E
+TipofDay=
+Undo=Ctrl+Z
+Up=Alt+Up
+WhatsThis=Shift+F1
+Zoom=
+ZoomIn=Ctrl+=; Ctrl++
+ZoomOut=Ctrl+-
+
+[firefox.desktop][Global Shortcuts]
+_launch=Meta+F
+new-private-window=
+new-window=
+
+[juk][Global Shortcuts]
+back=Ctrl+Alt+Left
+forward=Ctrl+Alt+Right
+forwardAlbum=Ctrl+Alt+Up
+mute=Ctrl+Alt+M
+playPause=Ctrl+Alt+P
+seekBack=Ctrl+Alt+Shift+Left
+seekForward=Ctrl+Alt+Shift+Right
+stop=Ctrl+Alt+S
+volumeDown=Ctrl+Alt+Shift+Down
+volumeUp=Ctrl+Alt+Shift+Up
+
+[kaccess][Global Shortcuts]
+Toggle Screen Reader On and Off=Meta+Alt+S
+
+[kcm_touchpad][Global Shortcuts]
+Disable Touchpad=Touchpad Off
+Enable Touchpad=Touchpad On
+Toggle Touchpad=Touchpad Toggle
+
+[kded5][Global Shortcuts]
+Show System Activity=Ctrl+Esc
+display=Display; Meta+P
+
+[khotkeys][Global Shortcuts]
+{d03619b6-9b3c-48cc-9d9c-a2aadb485550}=
+{ffffffff-ffff-4fff-bfff-ffffffffffff}=
+
+[kmix][Global Shortcuts]
+decrease-volume-CD@HD-Audio Generic=
+decrease-volume-Capture 2@HD-Audio Generic=
+decrease-volume-Capture@HD-Audio Generic=
+decrease-volume-Center@HD-Audio Generic=
+decrease-volume-Front Mic Boost@HD-Audio Generic=
+decrease-volume-Front Mic@HD-Audio Generic=
+decrease-volume-Front@HD-Audio Generic=
+decrease-volume-Headphone@HD-Audio Generic=
+decrease-volume-K3 @K3=
+decrease-volume-K3_USB_1.1 @K3=
+decrease-volume-LFE@HD-Audio Generic=
+decrease-volume-Line Boost@HD-Audio Generic=
+decrease-volume-Line@HD-Audio Generic=
+decrease-volume-Master@HD-Audio Generic=
+decrease-volume-Mic@Aukey-PC-LM1E Camera=
+decrease-volume-Mic@HD Pro Webcam C920=
+decrease-volume-PCM@C-Media USB Headphone Set=
+decrease-volume-PCM@HD-Audio Generic=
+decrease-volume-PCM@USB Microphone=
+decrease-volume-Rear Mic Boost@HD-Audio Generic=
+decrease-volume-Rear Mic@HD-Audio Generic=
+decrease-volume-Side@HD-Audio Generic=
+decrease-volume-Sidetone@Plantronics C520-M=
+decrease-volume-Surround@HD-Audio Generic=
+decrease_microphone_volume=Microphone Volume Down
+decrease_volume=Volume Down
+increase-volume-CD@HD-Audio Generic=
+increase-volume-Capture 2@HD-Audio Generic=
+increase-volume-Capture@HD-Audio Generic=
+increase-volume-Center@HD-Audio Generic=
+increase-volume-Front Mic Boost@HD-Audio Generic=
+increase-volume-Front Mic@HD-Audio Generic=
+increase-volume-Front@HD-Audio Generic=
+increase-volume-Headphone@HD-Audio Generic=
+increase-volume-K3 @K3=
+increase-volume-K3_USB_1.1 @K3=
+increase-volume-LFE@HD-Audio Generic=
+increase-volume-Line Boost@HD-Audio Generic=
+increase-volume-Line@HD-Audio Generic=
+increase-volume-Master@HD-Audio Generic=
+increase-volume-Mic@Aukey-PC-LM1E Camera=
+increase-volume-Mic@HD Pro Webcam C920=
+increase-volume-PCM@C-Media USB Headphone Set=
+increase-volume-PCM@HD-Audio Generic=
+increase-volume-PCM@USB Microphone=
+increase-volume-Rear Mic Boost@HD-Audio Generic=
+increase-volume-Rear Mic@HD-Audio Generic=
+increase-volume-Side@HD-Audio Generic=
+increase-volume-Sidetone@Plantronics C520-M=
+increase-volume-Surround@HD-Audio Generic=
+increase_microphone_volume=Microphone Volume Up
+increase_volume=Volume Up
+mic_mute=Microphone Mute
+mute=Volume Mute
+toggle-mute-CD@HD-Audio Generic=
+toggle-mute-Capture 2@HD-Audio Generic=
+toggle-mute-Capture@HD-Audio Generic=
+toggle-mute-Center@HD-Audio Generic=
+toggle-mute-Front Mic Boost@HD-Audio Generic=
+toggle-mute-Front Mic@HD-Audio Generic=
+toggle-mute-Front@HD-Audio Generic=
+toggle-mute-Headphone@HD-Audio Generic=
+toggle-mute-IEC958 2@HDA ATI HDMI=
+toggle-mute-IEC958 3@HDA ATI HDMI=
+toggle-mute-IEC958 4@HDA ATI HDMI=
+toggle-mute-IEC958 5@HDA ATI HDMI=
+toggle-mute-IEC958 6@HDA ATI HDMI=
+toggle-mute-IEC958 Default PCM@HD-Audio Generic=
+toggle-mute-IEC958@HD-Audio Generic=
+toggle-mute-IEC958@HDA ATI HDMI=
+toggle-mute-K3 @K3=
+toggle-mute-K3_USB_1.1 @K3=
+toggle-mute-LFE@HD-Audio Generic=
+toggle-mute-Line Boost@HD-Audio Generic=
+toggle-mute-Line@HD-Audio Generic=
+toggle-mute-Master@HD-Audio Generic=
+toggle-mute-Mic@Aukey-PC-LM1E Camera=
+toggle-mute-Mic@HD Pro Webcam C920=
+toggle-mute-PCM@C-Media USB Headphone Set=
+toggle-mute-PCM@HD-Audio Generic=
+toggle-mute-PCM@USB Microphone=
+toggle-mute-Rear Mic Boost@HD-Audio Generic=
+toggle-mute-Rear Mic@HD-Audio Generic=
+toggle-mute-Side@HD-Audio Generic=
+toggle-mute-Sidetone@Plantronics C520-M=
+toggle-mute-Surround@HD-Audio Generic=
+
+[konversation][Global Shortcuts]
+next_active_tab=
+toggle_mainwindow_visibility=
+
+[krunner.desktop][Global Shortcuts]
+RunClipboard=Alt+Shift+F2
+_launch=Alt+F2; Search; Meta+Space
+
+[ksmserver][Global Shortcuts]
+Halt Without Confirmation=Ctrl+Alt+Shift+PgDown
+Lock Session=Ctrl+Alt+Del; Screensaver
+Log Out=Ctrl+Alt+Shift+Del
+Log Out Without Confirmation=
+Reboot Without Confirmation=Ctrl+Alt+Shift+PgUp
+
+[kwin][Global Shortcuts]
+Activate Window Demanding Attention=Meta+Shift+A
+Decrease Opacity=
+Disable Touchpad=Touchpad Off
+Enable Touchpad=Touchpad On
+Expose=Ctrl+F9
+ExposeAll=Launch (C); Ctrl+F10
+ExposeClass=Ctrl+F7
+FlipSwitchAll=
+FlipSwitchCurrent=
+Increase Opacity=
+Invert Screen Colors=
+Kill Window=Meta+Ctrl+Shift+C
+MoveMouseToCenter=Meta+F6
+MoveMouseToFocus=Meta+F5
+MoveZoomDown=
+MoveZoomLeft=
+MoveZoomRight=
+MoveZoomUp=
+Remove Window From Group=
+Setup Window Shortcut=
+Show Desktop=Meta+D
+ShowDesktopGrid=Ctrl+F8
+Suspend Compositing=Alt+Shift+F12
+Switch One Desktop Down=Meta+Ctrl+J
+Switch One Desktop Up=Meta+Ctrl+K
+Switch One Desktop to the Left=Meta+Ctrl+H
+Switch One Desktop to the Right=Meta+Ctrl+L
+Switch Window Down=Meta+J
+Switch Window Left=Meta+H
+Switch Window Right=Meta+L
+Switch Window Up=Meta+K
+Switch to Desktop 1=
+Switch to Desktop 10=
+Switch to Desktop 11=
+Switch to Desktop 12=
+Switch to Desktop 13=
+Switch to Desktop 14=
+Switch to Desktop 15=
+Switch to Desktop 16=
+Switch to Desktop 17=
+Switch to Desktop 18=
+Switch to Desktop 19=
+Switch to Desktop 2=
+Switch to Desktop 20=
+Switch to Desktop 3=
+Switch to Desktop 4=
+Switch to Desktop 5=
+Switch to Desktop 6=
+Switch to Desktop 7=
+Switch to Desktop 8=
+Switch to Desktop 9=
+Switch to Next Desktop=
+Switch to Next Screen=
+Switch to Previous Desktop=
+Switch to Previous Screen=
+Switch to Screen 0=
+Switch to Screen 1=
+Switch to Screen 2=
+Switch to Screen 3=
+Switch to Screen 4=
+Switch to Screen 5=
+Switch to Screen 6=
+Switch to Screen 7=
+Toggle Night Color=
+Toggle Touchpad=Touchpad Toggle
+Toggle Window Raise/Lower=
+Walk Through Desktop List=
+Walk Through Desktop List (Reverse)=
+Walk Through Desktops=
+Walk Through Desktops (Reverse)=
+Walk Through Window Tabs=
+Walk Through Window Tabs (Reverse)=
+Walk Through Windows=Alt+Tab
+Walk Through Windows (Reverse)=Alt+Shift+Backtab
+Walk Through Windows Alternative=
+Walk Through Windows Alternative (Reverse)=
+Walk Through Windows of Current Application=Alt+^
+Walk Through Windows of Current Application (Reverse)=Alt+°
+Walk Through Windows of Current Application Alternative=
+Walk Through Windows of Current Application Alternative (Reverse)=
+Window Above Other Windows=
+Window Below Other Windows=
+Window Close=Meta+Shift+C
+Window Fullscreen=
+Window Grow Horizontal=
+Window Grow Vertical=
+Window Lower=
+Window Maximize=Meta+Shift+M; Meta+M
+Window Maximize Horizontal=
+Window Maximize Vertical=
+Window Minimize=Meta+Shift+N; Meta+N
+Window Move=Meta+Ctrl+M
+Window No Border=
+Window On All Desktops=
+Window One Desktop Down=Meta+Ctrl+Shift+J
+Window One Desktop Up=Meta+Ctrl+Shift+K
+Window One Desktop to the Left=Meta+Ctrl+Shift+H
+Window One Desktop to the Right=Meta+Ctrl+Shift+L
+Window Operations Menu=Alt+F3
+Window Pack Down=Meta+Alt+J
+Window Pack Left=Meta+Alt+H
+Window Pack Right=Meta+Alt+L
+Window Pack Up=Meta+Alt+K
+Window Quick Tile Bottom=Meta+Down
+Window Quick Tile Bottom Left=Meta+Shift+J
+Window Quick Tile Bottom Right=Meta+Shift+K
+Window Quick Tile Left=Meta+Shift+H
+Window Quick Tile Right=Meta+Shift+L
+Window Quick Tile Top=Meta+Up
+Window Quick Tile Top Left=Meta+Shift+U
+Window Quick Tile Top Right=Meta+Shift+I
+Window Raise=
+Window Resize=
+Window Shade=
+Window Shrink Horizontal=
+Window Shrink Vertical=
+Window to Desktop 1=
+Window to Desktop 10=
+Window to Desktop 11=
+Window to Desktop 12=
+Window to Desktop 13=
+Window to Desktop 14=
+Window to Desktop 15=
+Window to Desktop 16=
+Window to Desktop 17=
+Window to Desktop 18=
+Window to Desktop 19=
+Window to Desktop 2=
+Window to Desktop 20=
+Window to Desktop 3=
+Window to Desktop 4=
+Window to Desktop 5=
+Window to Desktop 6=
+Window to Desktop 7=
+Window to Desktop 8=
+Window to Desktop 9=
+Window to Next Desktop=
+Window to Next Screen=
+Window to Previous Desktop=
+Window to Previous Screen=
+Window to Screen 0=
+Window to Screen 1=
+Window to Screen 2=
+Window to Screen 3=
+Window to Screen 4=
+Window to Screen 5=
+Window to Screen 6=
+Window to Screen 7=
+WindowGeometry=
+view_actual_size=
+view_zoom_in=Meta+=
+view_zoom_out=Meta+-
+
+[mediacontrol][Global Shortcuts]
+mediavolumedown=
+mediavolumeup=
+nextmedia=Media Next
+pausemedia=Media Pause
+playmedia=
+playpausemedia=Media Play
+previousmedia=Media Previous
+stopmedia=Media Stop
+
+[org.kde.dolphin.desktop][Global Shortcuts]
+_launch=Meta+E
+
+[org.kde.konsole.desktop][Global Shortcuts]
+NewTab=
+NewWindow=
+_launch=Meta+T; Meta+Return
+
+[org.kde.krunner.desktop][Global Shortcuts]
+RunClipboard=Alt+Shift+F2
+_launch=Meta+Space; Search; Alt+F2
+
+[org.kde.plasma.emojier.desktop][Global Shortcuts]
+_launch=Meta+.
+
+[org.kde.spectacle.desktop][Global Shortcuts]
+ActiveWindowScreenShot=
+CurrentMonitorScreenShot=
+FullScreenScreenShot=
+RectangularRegionScreenShot=
+WindowUnderCursorScreenShot=Meta+Ctrl+Print
+_launch=Print
+
+[org_kde_powerdevil][Global Shortcuts]
+Decrease Keyboard Brightness=Keyboard Brightness Down
+Decrease Screen Brightness=Monitor Brightness Down
+Hibernate=Hibernate
+Increase Keyboard Brightness=Keyboard Brightness Up
+Increase Screen Brightness=Monitor Brightness Up
+PowerDown=Power Down
+PowerOff=Power Off
+Sleep=Sleep
+Toggle Keyboard Backlight=Keyboard Light On/Off
+Turn Off Screen=
+
+[plasmashell][Global Shortcuts]
+activate task manager entry 1=Meta+1
+activate task manager entry 10=Meta+0
+activate task manager entry 2=Meta+2
+activate task manager entry 3=Meta+3
+activate task manager entry 4=Meta+4
+activate task manager entry 5=Meta+5
+activate task manager entry 6=Meta+6
+activate task manager entry 7=Meta+7
+activate task manager entry 8=Meta+8
+activate task manager entry 9=Meta+9
+activate widget 112=
+activate widget 15=
+activate widget 20=
+activate widget 29=Alt+F1
+activate widget 34=
+activate widget 67=Alt+F1
+activate widget 69=
+activate widget 91=
+clear-history=
+clipboard_action=Ctrl+Alt+X
+cycleNextAction=
+cyclePrevAction=
+edit_clipboard=
+manage activities=Meta+Q
+next activity=Meta+Tab
+previous activity=Meta+Shift+Tab
+repeat_action=Ctrl+Alt+R
+show dashboard=Ctrl+F12
+show-barcode=
+show-on-mouse-pos=
+stop current activity=Meta+S
+switch to next activity=
+switch to previous activity=
+toggle do not disturb=
+
+[systemsettings.desktop][Global Shortcuts]
+_launch=Tools
+
+[vivaldi-stable.desktop][Global Shortcuts]
+_launch=Meta+B; Meta+V
+new-private-window=
+new-window=

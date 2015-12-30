@@ -1,0 +1,163 @@
+# {{{ oh-my-zsh specific settings
+
+# Path to your oh-my-zsh installation.
+export ZSH=$HOME/.oh-my-zsh
+
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+ZSH_THEME="essembeh"
+
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Uncomment the following line to use case-sensitive completion.
+CASE_SENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to disable command auto-correction.
+# DISABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+plugins=(
+    compleat
+    gnu-utils
+    sudo
+    vi-mode
+    history-substring-search
+    cp
+    copydir
+    copyfile
+    common-aliases
+    colorize
+    tmux
+    command-not-found
+    wd
+    shrink-path
+    gitfast
+)
+
+source $ZSH/oh-my-zsh.sh
+
+# }}}
+
+# {{{ User configuration
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+# }}}
+
+### Self-defined stuff starts here ###
+
+# {{{ General settings
+
+## warning if file exists ('cat /dev/null > ~/.zshrc')
+setopt NO_clobber
+
+# Autocomplete for ..
+zstyle ':completion:*' special-dirs true
+
+# }}}
+
+# {{{ Use syntax highlighting
+
+local fsh=/${HOME}/.zsh/plugins/fsh/fast-syntax-highlighting.plugin.zsh
+local syntax_highlighting=/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+if [ -r $fsh ]; then
+    source $fsh
+elif [ -r $syntax_highlighting ]; then
+    source $syntax_highlighting
+fi
+
+# }}}
+
+# {{{ Recursive history search
+
+# bind UP and DOWN arrow keys
+zmodload zsh/terminfo
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
+# same for ubuntu
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+# bind P and N for EMACS mode
+bindkey -M emacs '^P' history-substring-search-up
+bindkey -M emacs '^N' history-substring-search-down
+# bind k and j for VI mode
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
+# Recursive searching through history
+bindkey '^R' history-incremental-search-backward
+bindkey '^F' history-incremental-search-forward
+
+# }}}
+
+# {{{ Prompt overrides
+
+# Override some prompt settings of essembeh theme
+ZSH_THEME_COLOR_USER="green" 
+ZSH_THEME_COLOR_HOST="green" 
+ZSH_THEME_COLOR_AT="grey" 
+ZSH_THEME_COLOR_PWD="yellow" 
+ZSH_THEME_COLOR_END="grey" 
+ZSH_THEME_COLOR_CLOCK="yellow"
+test -n "$SSH_CONNECTION" && ZSH_THEME_COLOR_HOST="red"
+test `id -u` = 0 && ZSH_THEME_COLOR_USER="red"
+
+PS1='%{$fg_bold[$ZSH_THEME_COLOR_USER]%}%n%{$fg_bold[$ZSH_THEME_COLOR_AT]%}@%{$fg_bold[$ZSH_THEME_COLOR_HOST]%}%M%{$reset_color%} $(my_git_prompt_info)%{$fg_bold[$ZSH_THEME_COLOR_END]%}%(!.#.$) %{$reset_color%}'
+RPS1='${return_code} %{$reset_color%}%{$fg_bold[$ZSH_THEME_COLOR_PWD]%}[$(shrink_path -f)]%{$reset_color%} %{$fg[$ZSH_THEME_COLOR_CLOCK]%}%D{[%H:%M:%S]}%{$reset_color%}'
+
+# }}}
+
+# {{{ Fix key bindings
+
+bindkey "${terminfo[kich1]}" overwrite-mode
+bindkey "${terminfo[khome]}" beginning-of-line
+bindkey "${terminfo[kpp]}" up-line-or-history
+bindkey "${terminfo[kdch1]}" delete-char
+bindkey "${terminfo[kend]}" end-of-line
+bindkey "${terminfo[knp]}" down-line-or-history
+bindkey "${terminfo[kcub1]}" backward-char
+bindkey "${terminfo[kcuf1]}" forward-char
+#bindkey "${terminfo[kcuu1]}" up-line-or-search
+#bindkey "${terminfo[kcud1]}" down-line-or-search
+
+# }}}
+
+# vim: set fenc=utf-8 sw=4 sts=4 et foldmethod=marker :

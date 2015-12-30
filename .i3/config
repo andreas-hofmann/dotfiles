@@ -1,0 +1,357 @@
+# i3 config file
+# 
+# Author: Andreas Hofmann
+# Contact: mail@andreas-hofmann.org
+#
+# This is based on the config of my brother, Simon Hofmann.
+# Contact: mail@simon-hofmann.org
+
+# Modifier key
+# Mod1 = Alt key
+# Mod4 = Win key
+
+set $mod Mod1
+set $mod_alt Mod4
+
+# Font for window titles. Will also be used by the bar unless a different font is used in the bar {} block below. ISO 10646 = Unicode
+#font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+# The font above is very space-efficient, that is, it looks good, sharp and clear in small sizes. However, if you need a lot of unicode glyphs or right-to-left text rendering, you should instead use pango for rendering 
+# and chose a FreeType font, such as: font pango:DejaVu Sans Mono 10
+
+font pango:Sans 8
+
+# Default splitting orientation for new windows
+default_orientation horizontal
+
+# Default border size for new windows
+new_window 1pixel
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+focus_follows_mouse no
+
+# start a terminal
+bindsym $mod+Return exec i3-sensible-terminal
+
+# kill focused window
+bindsym $mod+q kill
+
+# start dmenu (a program launcher)
+bindsym $mod+d exec dmenu_run
+
+# change focus
+bindsym $mod+h focus left 
+bindsym $mod+j focus down 
+bindsym $mod+k focus up 
+bindsym $mod+l focus right
+#bindsym $mod+odiaeresis focus right
+
+# move focused window
+bindsym $mod+Shift+h move left 
+bindsym $mod+Shift+j move down 
+bindsym $mod+Shift+k move up 
+bindsym $mod+Shift+l move right
+#bindsym $mod+Shift+odiaeresis move right
+
+# split in horizontal orientation
+bindsym $mod+b split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking 
+bindsym $mod+w layout tabbed 
+bindsym $mod+e layout toggle split
+bindsym $mod+o layout splitv
+bindsym $mod+u layout splith
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container 
+bindsym $mod+c focus child
+
+# Allow moving back and forth quickly
+bindsym $mod+z workspace back_and_forth
+bindsym $mod+Shift+z move container to workspace back_and_forth; workspace back_and_forth
+
+# Custom variables for workspaces
+set $ws1 1:web
+set $ws2 2:mail
+set $ws3 3:terms
+set $ws4 4:ssh
+set $ws5 5:doc
+set $ws6 6:files
+set $ws7 7:♪ ♫
+set $ws8 8:gfx
+set $ws9 9:vbox
+set $ws10 /dev/null
+
+# some additional workspaces
+set $ws11 F1: 11:spare
+set $ws12 F2: 12:spare
+set $ws13 F3: 13:spare
+set $ws14 F4: 14:spare
+set $ws15 F5: 15:spare
+set $ws16 F6: 16:spare
+set $ws17 F7: 17:spare
+set $ws18 F8: 18:spare
+set $ws19 F9: 19:spare
+set $ws20 F10: 20:spare
+set $ws21 F11: 21:spare
+set $ws22 F12: 22:spare
+
+# Switch To Workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+bindsym $mod+F1 workspace $ws11
+bindsym $mod+F2 workspace $ws12
+bindsym $mod+F3 workspace $ws13
+bindsym $mod+F4 workspace $ws14
+bindsym $mod+F5 workspace $ws15
+bindsym $mod+F6 workspace $ws16
+bindsym $mod+F7 workspace $ws17
+bindsym $mod+F8 workspace $ws18
+bindsym $mod+F9 workspace $ws19
+bindsym $mod+F10 workspace $ws20
+bindsym $mod+F11 workspace $ws21
+bindsym $mod+F12 workspace $ws22
+
+# Switch workdpaces
+bindsym $mod+comma workspace prev
+# Don't bind period - used for parameter repetition in zsh/bash.
+bindsym $mod+minus workspace next
+
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+bindsym $mod+Shift+F1 move container to workspace $ws11
+bindsym $mod+Shift+F2 move container to workspace $ws12
+bindsym $mod+Shift+F3 move container to orkspace $ws13
+bindsym $mod+Shift+F4 move container to orkspace $ws14
+bindsym $mod+Shift+F5 move container to orkspace $ws15
+bindsym $mod+Shift+F6 move container to orkspace $ws16
+bindsym $mod+Shift+F7 move container to orkspace $ws17
+bindsym $mod+Shift+F8 move container to orkspace $ws18
+bindsym $mod+Shift+F9 move container to orkspace $ws19
+bindsym $mod+Shift+F10 move container to workspace $ws20
+bindsym $mod+Shift+F11 move container to workspace $ws21
+bindsym $mod+Shift+F12 move container to workspace $ws22
+
+bindsym $mod+Shift+comma move container to workspace prev
+bindsym $mod+Shift+period move container to workspace next
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# exit i3 (logs you out of your X session)
+# bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'Choose:' -b 'Exit i3' 'i3-msg exit' -b 'Reboot' 'i3-msg exec systemctl reboot' -b 'Poweroff' 'i3-msg exec systemctl poweroff'"
+# bindsym $mod+Shift+w exec "i3-nagbar -t warning -m 'Choose:' -b 'Suspend' 'i3-msg exec systemctl suspend' -b 'Hibernate' 'i3-msg exec systemctl hibernate'"
+
+# Log out, Reboot, Poweroff bindings
+mode "(E)xit, (R)eboot, (P)oweroff" {
+        bindsym r exec systemctl reboot
+        bindsym e exit
+        bindsym p exec systemctl poweroff
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+Shift+q mode "(E)xit, (R)eboot, (P)oweroff"
+
+# Suspend, Hibernate bindings
+mode "(S)uspend, (H)ibernate" {
+        bindsym s exec systemctl suspend
+        bindsym h exec systemctl hibernate
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+Shift+p mode "(S)uspend, (H)ibernate"
+
+# Move between outputs
+mode "Move to output..." {
+        bindsym l move container to output right
+        bindsym k move container to output up
+        bindsym j move container to output down
+        bindsym h move container to output left
+        bindsym $mod+l move workspace to output right
+        bindsym $mod+k move workspace to output up
+        bindsym $mod+j move workspace to output down
+        bindsym $mod+h move workspace to output left
+
+        # back to normal: Enter or Escape
+	bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+Shift+o mode "Move to output..."
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width. Pressing right will grow the window’s width. Pressing up will shrink the window’s height. Pressing down will grow the window’s height.
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+mode "focused" {
+
+                # hardcoded focus keybindings
+                bindsym f [class="Firefox"] focus
+                bindsym t [class="Icedove"] focus
+                bindsym e [class="Evolution"] focus
+
+                # keybindings for marking and jumping to clients
+                bindsym a exec i3-input -F 'mark %s' -P 'Mark name: '
+                bindsym g exec i3-input -F '[con_mark=%s] focus' -P 'Go to mark: '
+
+                # Assign marks to keys 1-5
+                bindsym Shift+1 mark mark1
+                bindsym Shift+2 mark mark2
+                bindsym Shift+3 mark mark3
+                bindsym Shift+4 mark mark4
+                bindsym Shift+5 mark mark5
+
+                # Jump to clients marked 1-5
+                bindsym 1 [con_mark="mark1"] focus
+                bindsym 2 [con_mark="mark2"] focus
+                bindsym 3 [con_mark="mark3"] focus
+                bindsym 4 [con_mark="mark4"] focus
+                bindsym 5 [con_mark="mark5"] focus
+
+                # Exit to the default mode
+                bindsym Return mode "default"
+                bindsym Escape mode "default"
+}
+
+bindsym $mod+n mode "focused"
+
+# move window to scratchpad
+bindsym $mod+Shift+plus move scratchpad
+
+# show scratchpad
+bindsym $mod+plus scratchpad show
+
+# some default applications
+bindsym $mod_alt+f exec --no-startup-id firefox
+bindsym $mod_alt+t exec --no-startup-id icedove
+bindsym $mod_alt+e exec --no-startup-id evolution
+bindsym $mod_alt+v exec --no-startup-id gvim
+bindsym $mod_alt+s exec --no-startup-id spotify
+bindsym $mod_alt+h exec --no-startup-id thunar
+bindsym $mod_alt+g exec --no-startup-id google-chrome
+bindsym $mod_alt+c exec --no-startup-id chromium
+
+# screen setup
+bindsym $mod+Shift+Left  exec --no-startup-id ~/.screenlayout/left.sh   # external monitor left of LVDS
+bindsym $mod+Shift+Right exec --no-startup-id ~/.screenlayout/right.sh  # external monitor right of LVDS
+bindsym $mod+Shift+Up    exec --no-startup-id ~/.screenlayout/top.sh    # external monitor above LVDS 
+bindsym $mod+Shift+Down  exec --no-startup-id ~/.screenlayout/bottom.sh # external monitor below LVDS
+bindsym $mod+Shift+Home  exec --no-startup-id ~/.screenlayout/home.sh   # external monitor disabled
+
+# lock screen
+bindsym $mod_alt+l exec --no-startup-id xautolock -locknow
+
+# assign some windows to workspaces
+assign [class="Firefox"]          $ws1
+assign [class="Google-chrome"]    $ws1
+assign [class="chromium-browser"] $ws1
+assign [class="Iceweasel"]        $ws1
+
+assign [class="Thunderbird"]      $ws2
+assign [class="Icedove"]          $ws2
+assign [class="Evolution"]        $ws2
+
+assign [class="Thunar"]           $ws6
+
+for_window [class="Spotify"] move to workspace $ws7
+
+for_window [class="Steam"] move to workspace   $ws8
+
+# run some programs on startup
+exec --no-startup-id nitrogen --restore
+exec --no-startup-id parcellite
+exec --no-startup-id start-pulseaudio-x11
+exec --no-startup-id xautolock -time 5 -locker 'i3lock -c 000000'
+exec --no-startup-id dropboxd
+exec --no-startup-id owncloud
+exec --no-startup-id keynav daemonize
+exec --no-startup-id feh --bg-scale ~/Wallpapers/wp.jpg
+
+#configure some windows
+for_window [class="Firefox$"] border none
+for_window [class="Thunderbird$"] border none
+for_window [class="Xcalc$"] floating enable
+
+# bind fn-keys
+bindsym XF86AudioMute exec amixer set Master toggle         # toggle mute
+bindsym XF86AudioLowerVolume exec amixer set Master 5%-     # lower volume
+bindsym XF86AudioRaiseVolume exec amixer set Master 5%+     # raise volume
+bindsym XF86Mail exec evolution                             # start email client
+bindsym XF86WWW exec firefox                                # start browser
+bindsym XF86MyComputer exec thunar                          # start filemanager
+bindsym XF86Calculator exec xcalc                           # start calculator
+bindsym XF86Display exec arandr                             # monitor setup
+bindsym XF86ScreenSaver exec xautolock -locknow             # lock screen
+bindsym XF86AudioPrev exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous     # spotify prev
+bindsym XF86AudioNext exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next         # spotify next
+bindsym XF86AudioPlay exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause    # spotify play/pause
+
+# Start i3bar to display a workspace bar (plus the system information i3status finds out, if available)
+bar {
+    status_command i3status
+	position top
+	tray_output	LVDS1
+}

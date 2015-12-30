@@ -1,0 +1,178 @@
+## Own settings start here.
+
+# {{{ Colors
+
+# Enable colors for ls, etc.  Prefer ~/.dir_colors #64489
+if type -p dircolors >/dev/null ; then
+	if [[ -f ~/.dir_colors ]] ; then
+		eval $(dircolors -b ~/.dir_colors)
+	elif [[ -f /etc/DIR_COLORS ]] ; then
+		eval $(dircolors -b /etc/DIR_COLORS)
+	fi
+fi
+
+# }}}
+
+# {{{ Add the nix package manager
+if [ -d ~/.nix-profile ]; then
+    . ~/.nix-profile/etc/profile.d/nix.sh
+fi
+
+# }}}
+
+## {{{ Set some options
+
+setopt extendedglob
+setopt extended_glob
+setopt completeinword
+setopt append_history
+setopt share_history
+setopt longlistjobs
+setopt notify
+setopt hash_list_all
+setopt completeinword
+setopt nohup
+setopt auto_pushd
+setopt nobeep
+setopt pushd_ignore_dups
+setopt noglobdots
+setopt noshwordsplit
+setopt histignorespace
+setopt histignorealldups
+setopt extended_history
+
+# }}}
+
+## {{{ Key bindings
+
+# use the vi navigation keys (hjkl) besides cursor keys in menu completion
+bindkey -M menuselect 'h' vi-backward-char        # left
+bindkey -M menuselect 'k' vi-up-line-or-history   # up
+bindkey -M menuselect 'l' vi-forward-char         # right
+bindkey -M menuselect 'j' vi-down-line-or-history # bottom
+
+# Use vi mode by default
+bindkey -v
+
+# Restore default ALT+. behaviour
+bindkey '\e.' insert-last-word
+
+# }}}
+
+## {{{ Aliases
+
+alias ls='ls --color=auto -lh'
+alias la='ls --color=auto -lha'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias df='df -h'
+alias du='du -h'
+
+alias yxcv='setxkbmap de adnw'
+alias hiea='setxkbmap de neoqwertz'
+alias qwer='setxkbmap de neoqwertz'
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# get top 10 shell commands:
+alias top10='print -l ${(o)history%% *} | uniq -c | sort -nr | head -n 10'
+
+# Alias vi to gvim when running on a display
+export EDITOR='vim'
+if [[ -n $DISPLAY ]]; then
+  alias vi='gvim &> /dev/null'
+else
+  alias vi='vim'
+fi
+
+# }}}
+
+## {{{ Functions
+
+# Switching shell safely and efficiently? http://www.zsh.org/mla/workers/2001/msg02410.html
+bash() {
+    NO_SWITCH="yes" command bash "$@"
+}
+restart () {
+    exec $SHELL $SHELL_ARGS "$@"
+}
+
+# Find out which libs define a symbol
+lcheck() {
+    if [[ -n "$1" ]] ; then
+        nm -go /usr/lib/lib*.a 2>/dev/null | grep ":[[:xdigit:]]\{8\} . .*$1"
+    else
+        echo "Usage: lcheck <function>" >&2
+    fi
+}
+
+# Download a file and display it locally
+uopen() {
+    emulate -L zsh
+    if ! [[ -n "$1" ]] ; then
+        print "Usage: uopen \$URL/\$file">&2
+        return 1
+    else
+        FILE=$1
+        MIME=$(curl --head $FILE | \
+               grep Content-Type | \
+               cut -d ' ' -f 2 | \
+               cut -d\; -f 1)
+        MIME=${MIME%$'\r'}
+        curl $FILE | see ${MIME}:-
+    fi
+}
+
+# print hex value of a number
+hex() {
+    emulate -L zsh
+    if [[ -n "$1" ]]; then
+        printf "%x\n" $1
+    else
+        print 'Usage: hex <number-to-convert>'
+        return 1
+    fi
+}
+
+# press ctrl-q to quote line:
+mquote () {
+      zle beginning-of-line
+      zle forward-word
+      RBUFFER="'$RBUFFER'"
+      # RBUFFER=${(q)RBUFFER}
+      zle end-of-line
+}
+zle -N mquote && bindkey '^q' mquote
+
+# }}}
+
+# {{{ .pathrc
+#
+if [ -f ~/.pathrc ]; then
+	. ~/.pathrc
+fi
+
+# }}}
+
+# {{{ keychain
+#
+if [ -x /usr/bin/keychain ]; then
+    /usr/bin/keychain -q --nogui && source $HOME/.keychain/$HOST-sh
+fi
+# }}}
+
+# {{{ asdf
+if [ -f "$HOME/.asdf/asdf.sh" ]; then
+    . "$HOME/.asdf/asdf.sh"
+
+    # append completions to fpath
+    fpath=(${ASDF_DIR}/completions $fpath)
+    # initialise completions with ZSH's compinit
+    autoload -Uz compinit && compinit
+fi
+# }}}
+
+# vim: set fenc=utf-8 sw=4 sts=4 et foldmethod=marker :

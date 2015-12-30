@@ -1,0 +1,18 @@
+[ui]
+username = Andreas Hofmann <mail@andreas-hofmann.org>
+editor = vim
+
+[extensions]
+color =
+eol =
+pager =
+histedit =
+progress =
+mq =
+rebase =
+purge =
+hgk =
+graphlog =
+
+[color]
+mode = auto
