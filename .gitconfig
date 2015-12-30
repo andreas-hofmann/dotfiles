@@ -1,0 +1,9 @@
+[color]
+	ui = auto
+[user]
+	email = mail@andreas-hofmann.org
+	name = Andreas Hofmann
+[push]
+	default = simple
+[core]
+	editor = vim
