@@ -1,10 +1,18 @@
-#!/bin/sh
+#!/bin/bash
 
 # Creates links in current user's home directory to the files in this repo and
 # moves the old files (adds a .bak extension).
 
 SCRIPT=$(readlink -f "$0")
 SCRIPTPATH=$(dirname "$SCRIPT")
+
+if [ ! -d ${HOME}/.oh-my-zsh ]; then
+	read -p "oh-my-zsh not found - install? [Yn] " -n 1 -r
+	echo
+	if [[ $REPLY =~ ^[Yy]?$ ]]; then
+		sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+	fi
+fi
 
 for script in $(find ${SCRIPTPATH} -type f -iname '\.*'); do
 	script=$(basename ${script})
