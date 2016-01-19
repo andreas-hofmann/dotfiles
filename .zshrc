@@ -153,11 +153,12 @@ ZSH_THEME_COLOR_HOST="green"
 ZSH_THEME_COLOR_AT="grey" 
 ZSH_THEME_COLOR_PWD="yellow" 
 ZSH_THEME_COLOR_END="grey" 
+ZSH_THEME_COLOR_CLOCK="yellow"
 test -n "$SSH_CONNECTION" && ZSH_THEME_COLOR_HOST="red"
 test `id -u` = 0 && ZSH_THEME_COLOR_USER="red"
 
 PS1='%{$fg_bold[$ZSH_THEME_COLOR_USER]%}%n%{$fg_bold[$ZSH_THEME_COLOR_AT]%}@%{$fg_bold[$ZSH_THEME_COLOR_HOST]%}%M%{$reset_color%} %{$fg_bold[$ZSH_THEME_COLOR_PWD]%}%~%{$reset_color%} $(my_git_prompt_info)%{$fg_bold[$ZSH_THEME_COLOR_END]%}%(!.#.$) %{$reset_color%}'
-RPS1="${return_code}"
+RPS1="${return_code} %{$fg[$ZSH_THEME_COLOR_CLOCK]%}%D{[%H:%M:%S]}%{$reset_color%}"
 
 # Autocomplete for ..
 zstyle ':completion:*' special-dirs true
