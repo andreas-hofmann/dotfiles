@@ -260,3 +260,7 @@ set statusline=%<%F%h%m%r%h%w%y\ %{&ff}\ %{strftime(\"%c\",getftime(expand(\"%:p
 set laststatus=2
 
 set number
+
+" Tweak tab navigation
+noremap <C-h> gT
+noremap <C-l> gt
