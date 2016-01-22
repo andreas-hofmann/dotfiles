@@ -33,4 +33,4 @@ noremap <C-l> gt
 noremap <C-p> :tabmove! -1<CR>
 noremap <C-n> :tabmove! +1<CR>
 
-" vim: ft=vimp ts=4 sw=4 sts=0 et
+" vim: ft=vim ts=4 sw=4 sts=0 et
