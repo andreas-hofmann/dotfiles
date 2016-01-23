@@ -139,7 +139,8 @@ bindsym $mod+F12 workspace $ws22
 
 # Switch workdpaces
 bindsym $mod+comma workspace prev
-bindsym $mod+period workspace next
+# Don't bind period - used for parameter repetition in zsh/bash.
+bindsym $mod+minus workspace next
 
 # Move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
