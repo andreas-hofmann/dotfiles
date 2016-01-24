@@ -578,23 +578,23 @@ awful.rules.rules = {
 
     -- Set some apps to go directly to specific screns/workspaces.
     { rule = { class = "Firefox" },
-      properties = { tag = tags[1][2] } },
+      properties = { tag = tags[1][2], switchtotag=true } },
     { rule = { class = "Google-chrome" },
-      properties = { tag = tags[1][2] } },
+      properties = { tag = tags[1][2], switchtotag=true } },
     { rule = { class = "chromium-browser" },
-      properties = { tag = tags[1][2] } },
+      properties = { tag = tags[1][2], switchtotag=true } },
     { rule = { class = "Iceweasel" },
-      properties = { tag = tags[1][2] } },
+      properties = { tag = tags[1][2], switchtotag=true } },
 
     { rule = { class = "Thunderbird" },
-      properties = { tag = tags[1][3] } },
+      properties = { tag = tags[1][3], switchtotag=true } },
     { rule = { class = "Icedove" },
-      properties = { tag = tags[1][3] } },
+      properties = { tag = tags[1][3], switchtotag=true } },
     { rule = { class = "Evolution" },
-      properties = { tag = tags[1][3] } },
+      properties = { tag = tags[1][3], switchtotag=true } },
 
     { rule = { class = "Thunar" },
-      properties = { tag = tags[1][6] } },
+      properties = { tag = tags[1][6], switchtotag=true } },
 
     { rule = { class = "Spotify" },
       properties = { tag = tags[1][7] } },
