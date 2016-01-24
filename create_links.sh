@@ -6,6 +6,8 @@
 SCRIPT=$(readlink -f "$0")
 SCRIPTPATH=$(dirname "$SCRIPT")
 
+#set -x
+
 if [ ! -d ${HOME}/.oh-my-zsh ]; then
 	read -p "oh-my-zsh not found - install? [Yn] " -n 1 -r
 	echo
@@ -14,8 +16,9 @@ if [ ! -d ${HOME}/.oh-my-zsh ]; then
 	fi
 fi
 
-for script in $(find ${SCRIPTPATH} -type f -iname '\.*'); do
-	script=$(basename ${script})
+function link_script {
+	script=$(basename $1)
+
 	old_script="${HOME}/${script}"
 	if [ -h ${old_script} ]; then
 		echo "Deleting old link to ${script}"
@@ -29,16 +32,13 @@ for script in $(find ${SCRIPTPATH} -type f -iname '\.*'); do
 		mv ${old_script} ${old_script}.bak
 	fi
 	ln -s ${SCRIPTPATH}/${script} ${HOME}/
-done
+}
 
-for dir in $(find ${SCRIPTPATH} -type d -iname '\.*'); do
-	dir=$(basename ${dir})
+function link_dir {
+	dir=$1
+	subdir=$2
 
-	if [ ${dir} = ".git" ]; then
-		continue
-	fi
-
-	old_dir="${HOME}/${dir}"
+	old_dir="${HOME}/${subdir}/${dir}"
 	if [ -h ${old_dir} ]; then
 		echo "Deleting old link to ${dir}"
 		rm ${old_dir}
@@ -50,5 +50,26 @@ for dir in $(find ${SCRIPTPATH} -type d -iname '\.*'); do
 		fi
 		mv ${old_dir} ${old_dir}.bak
 	fi
-	ln -s ${SCRIPTPATH}/${dir} ${HOME}/
+	ln -s ${SCRIPTPATH}/${subdir}/${dir} ${HOME}/${subdir}/${dir}
+}
+
+for script in $(find ${SCRIPTPATH} -type f -iname '\.*'); do
+	link_script ${script}
+done
+
+for dir in $(find ${SCRIPTPATH} -type d -iname '\.*'); do
+	directory=$(basename ${dir})
+
+	if [ ${directory} = ".git" ]; then
+		# Don't copy git info, skip to next directory
+		continue
+	elif [ ${directory} = ".config" ]; then
+		# Don't link complete config dir, it probably holds a lot of previous entries
+		for subdir in $(find ${dir} -type d); do
+			subdirectory=$(basename ${subdir})
+			link_dir ${subdirectory} ${directory}
+		done
+	else
+		link_dir ${directory}
+	fi
 done
