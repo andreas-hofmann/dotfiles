@@ -91,7 +91,8 @@ myawesomemenu = {
     { "manual", terminal .. " -e man awesome" },
     { "edit config", editor_cmd .. " " .. awesome.conffile },
     { "restart", awesome.restart },
-    { "quit", awesome.quit }
+    { "quit", awesome.quit },
+    { "logout", "/home/andi/.config/awesome/shutdown.sh" }
 }
 
 -- Freedesktop.org menu - Need some extra packages. Use the debian menu for now.
@@ -413,7 +414,8 @@ globalkeys = awful.util.table.join(
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
-    awful.key({ modkey, "Shift"   }, "q", awesome.quit),
+    awful.key({ modkey, "Control" }, "q", awesome.quit),
+    awful.key({ modkey, "Shift"   }, "q", function () awful.util.spawn( "/home/andi/.config/awesome/shutdown.sh" ) end),
 
     awful.key({ modkey,           }, "k",     function () awful.tag.incmwfact( 0.05)    end),
     awful.key({ modkey,           }, "j",     function () awful.tag.incmwfact(-0.05)    end),
