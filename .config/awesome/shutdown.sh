@@ -27,9 +27,10 @@ if [ -n "${ACTION}" ];then
     ;;
   Suspend)
     systemctl suspend
+    xautolock -locknow
     ;;
   LockScreen)
-     xautolock -locknow
+    xautolock -locknow
     ;;
   esac
 fi
