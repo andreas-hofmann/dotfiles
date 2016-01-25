@@ -671,12 +671,13 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 --Autostart apps
---awful.util.spawn_with_shell("dropboxd")
+awful.util.spawn_with_shell("dropbox start")
 awful.util.spawn_with_shell("owncloud")
 awful.util.spawn_with_shell("keynav daemonize")
 awful.util.spawn_with_shell("start-pulseaudio-x11")
 awful.util.spawn_with_shell("xautolock -time 5 -locker 'i3lock -c 000000'")
 awful.util.spawn_with_shell("setxkbmap -model pc105 -layout de -variant nodeadkeys")
 awful.util.spawn_with_shell("nm-applet")
+awful.util.spawn_with_shell("blueman-applet")
 
 -- vim: ft=lua ts=4 sw=4 sts=0 et
