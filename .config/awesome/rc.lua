@@ -76,7 +76,7 @@ end
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
 --tags = {}
-tags = { names  = { "1:main",   "2:web",    "3:mail",   "4:terms",  "5:ssh",    "6:files",  "7:music",  "8:misc",   "9:misc" },
+tags = { names  = { "1:main",   "2:web",    "3:mail",   "4:terms",  "5:ssh",    "6:files",  "7:music",  "8:devel",   "9:vbox" },
          layout = { layouts[1], layouts[5], layouts[5], layouts[3], layouts[3], layouts[1], layouts[1], layouts[1], layouts[1] }
 }
 
