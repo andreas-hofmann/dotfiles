@@ -92,7 +92,7 @@ myawesomemenu = {
     { "edit config", editor_cmd .. " " .. awesome.conffile },
     { "restart", awesome.restart },
     { "quit", awesome.quit },
-    { "logout", "/home/andi/.config/awesome/shutdown.sh" }
+    { "logout", os.getenv("HOME") .. "/.config/awesome/shutdown.sh" }
 }
 
 -- Freedesktop.org menu - Need some extra packages. Use the debian menu for now.
