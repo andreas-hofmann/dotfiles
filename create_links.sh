@@ -57,7 +57,7 @@ for script in $(find ${SCRIPTPATH} -type f -iname '\.*'); do
 	link_script ${script}
 done
 
-for dir in $(find ${SCRIPTPATH} -type d -iname '\.*'); do
+for dir in $(find ${SCRIPTPATH} -maxdepth 1 -type d -iname '\.*'); do
 	directory=$(basename ${dir})
 
 	if [ ${directory} = ".git" ]; then
@@ -65,7 +65,7 @@ for dir in $(find ${SCRIPTPATH} -type d -iname '\.*'); do
 		continue
 	elif [ ${directory} = ".config" ]; then
 		# Don't link complete config dir, it probably holds a lot of previous entries
-		for subdir in $(find ${dir} -type d); do
+		for subdir in $(find ${dir} -maxdepth 1 -type d); do
 			subdirectory=$(basename ${subdir})
 			link_dir ${subdirectory} ${directory}
 		done
