@@ -51,7 +51,7 @@ end
 
 run_once("urxvtd")
 run_once("unclutter -root")
-
+run_once("xfsettingsd")
 run_once("dropbox start")
 run_once("owncloud")
 run_once("keynav daemonize")
@@ -532,7 +532,7 @@ globalkeys = awful.util.table.join(
     -- Standard program
     awful.key({ modkey,           }, "Return",  function () awful.util.spawn(terminal) end),
     awful.key({ modkey, "Control" }, "r",       awesome.restart),
-    awful.key({ modkey, "Shift"   }, "q",       function () awful.util.spawn( "/home/andi/.config/awesome/shutdown.sh" ) end),
+    awful.key({ modkey, "Shift"   }, "q",       function () awful.util.spawn( os.getenv("HOME") .. "/.config/awesome/shutdown.sh" ) end),
 
     -- Dropdown terminal
     awful.key({ modkey,	          }, "z",       function () drop(terminal) end),
@@ -589,12 +589,12 @@ globalkeys = awful.util.table.join(
     -- Program lauchers
     awful.key({ altkey,         }, "f", function () awful.util.spawn("firefox")            end),
     awful.key({ altkey,         }, "t", function () awful.util.spawn("icedove")            end),
-    awful.key({ altkey,         }, "e", function () awful.util.spawn("evolution")          end),
+    awful.key({ altkey,         }, "m", function () awful.util.spawn("evolution")          end),
     awful.key({ altkey,         }, "v", function () awful.util.spawn("gvim")               end),
     awful.key({ altkey,         }, "s", function () awful.util.spawn("spotify")            end),
-    awful.key({ altkey,         }, "h", function () awful.util.spawn("thunar")             end),
+    awful.key({ altkey,         }, "e", function () awful.util.spawn("thunar")             end),
     awful.key({ altkey,         }, "g", function () awful.util.spawn("google-chrome")      end),
-    awful.key({ altkey,         }, "w", function () awful.util.spawn("chromium")           end),
+    awful.key({ altkey,         }, "d", function () awful.util.spawn("chromium")           end),
     awful.key({ altkey,         }, "l", function () awful.util.spawn("xautolock -locknow") end),
 
     -- Dmenu
@@ -710,14 +710,14 @@ awful.rules.rules = {
     { rule = { class = "MPlayer" },
           properties = { floating = true } },
 
-    { rule = { class = "Dwb" },
-          properties = { tag = tags[1][2] } },
+    --{ rule = { class = "Dwb" },
+    --      properties = { tag = tags[1][2] } },
 
-    { rule = { class = "Iron" },
-          properties = { tag = tags[1][2] } },
+    --{ rule = { class = "Iron" },
+    --      properties = { tag = tags[1][2] } },
 
-    { rule = { instance = "plugin-container" },
-          properties = { tag = tags[1][2] } },
+    --{ rule = { instance = "plugin-container" },
+    --      properties = { tag = tags[1][2] } },
 
     { rule = { class = "Gimp" },
         properties = { tag = tags[1][5] } },
@@ -727,14 +727,14 @@ awful.rules.rules = {
                          maximized_vertical = true } },
 
     -- Set some apps to go directly to specific screns/workspaces.
-    { rule = { class = "Firefox" },
-      properties = { tag = tags[1][2], switchtotag=true } },
-    { rule = { class = "Google-chrome" },
-      properties = { tag = tags[1][2], switchtotag=true } },
-    { rule = { class = "chromium-browser" },
-      properties = { tag = tags[1][2], switchtotag=true } },
-    { rule = { class = "Iceweasel" },
-      properties = { tag = tags[1][2], switchtotag=true } },
+    --{ rule = { class = "Firefox" },
+    --  properties = { tag = tags[1][2], switchtotag=true } },
+    --{ rule = { class = "Google-chrome" },
+    --  properties = { tag = tags[1][2], switchtotag=true } },
+    --{ rule = { class = "chromium-browser" },
+    --  properties = { tag = tags[1][2], switchtotag=true } },
+    --{ rule = { class = "Iceweasel" },
+    --  properties = { tag = tags[1][2], switchtotag=true } },
 
     { rule = { class = "Thunderbird" },
       properties = { tag = tags[1][2], switchtotag=true } },
@@ -744,7 +744,7 @@ awful.rules.rules = {
       properties = { tag = tags[1][2], switchtotag=true } },
 
     { rule = { class = "Thunar" },
-      properties = { tag = tags[1][5], switchtotag=true } },
+      properties = { tag = tags[1][4], switchtotag=true } },
 }
 -- }}}
 
