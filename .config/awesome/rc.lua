@@ -51,7 +51,7 @@ end
 
 run_once("urxvtd")
 run_once("unclutter -root")
-run_once("xfsettingsd")
+--run_once("xfsettingsd")
 run_once("dropbox start")
 run_once("owncloud")
 run_once("keynav daemonize")
@@ -589,7 +589,7 @@ globalkeys = awful.util.table.join(
     -- Program lauchers
     awful.key({ altkey,         }, "f", function () awful.util.spawn("firefox")            end),
     awful.key({ altkey,         }, "t", function () awful.util.spawn("icedove")            end),
-    awful.key({ altkey,         }, "m", function () awful.util.spawn("evolution")          end),
+    awful.key({ altkey,         }, "b", function () awful.util.spawn("evolution")          end),
     awful.key({ altkey,         }, "v", function () awful.util.spawn("gvim")               end),
     awful.key({ altkey,         }, "s", function () awful.util.spawn("spotify")            end),
     awful.key({ altkey,         }, "e", function () awful.util.spawn("thunar")             end),
