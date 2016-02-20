@@ -57,7 +57,7 @@ run_once("owncloud")
 run_once("keynav daemonize")
 run_once("start-pulseaudio-x11")
 run_once("xautolock -time 5 -locker 'i3lock -c 000000'")
-run_once("setxkbmap -model pc105 -layout de -variant nodeadkeys")
+run_once("setxkbmap -model pc105 -layout de -variant neoqwertz")
 run_once("nm-applet")
 run_once("blueman-applet")
 -- }}}
