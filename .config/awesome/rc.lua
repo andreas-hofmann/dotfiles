@@ -71,7 +71,7 @@ beautiful.init(os.getenv("HOME") .. "/.config/awesome/themes/multicolor/theme.lu
 -- common
 modkey     = "Mod1"
 altkey     = "Mod4"
-terminal   = "xfce4-terminal" or "urxvtc" or "xterm"
+terminal   = "terminator" or "xfce4-terminal" or "xterm"
 editor     = os.getenv("EDITOR") or "vim" or "nano"
 editor_cmd = terminal .. " -e " .. editor
 

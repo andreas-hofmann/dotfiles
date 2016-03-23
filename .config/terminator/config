@@ -1,0 +1,37 @@
+[global_config]
+  borderless = True
+  enabled_plugins = InactivityWatch, APTURLHandler, LaunchpadBugURLHandler
+  focus = system
+  geometry_hinting = False
+  inactive_color_offset = 1.0
+  title_font = Monospace 8
+  title_hide_sizetext = True
+  title_inactive_bg_color = "#313131"
+  title_inactive_fg_color = "#d8d8d8"
+  title_transmit_bg_color = "#62000b"
+  title_transmit_fg_color = "#d8d8d8"
+  title_use_system_font = False
+[keybindings]
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      profile = default
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    background_darkness = 0.9
+    background_image = None
+    cursor_color = "#23b724"
+    font = Monospace 9
+    foreground_color = "#e1e1e1"
+    palette = "#000000:#cd0000:#00cd00:#cdcd00:#0000ee:#cd00cd:#00cdcd:#e5e5e5:#7f7f7f:#ff0000:#00ff00:#ffff00:#5c5cff:#ff00ff:#00ffff:#ffffff"
+    scroll_on_output = False
+    scrollback_lines = 10000
+    scrollbar_position = hidden
+    show_titlebar = False
+    use_system_font = False
