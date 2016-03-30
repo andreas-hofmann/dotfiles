@@ -220,7 +220,7 @@ autocmd BufRead *.htmldjango set softtabstop=2
 autocmd BufRead *.htmldjango set autoindent
 
 "Set colorscheme
-colorscheme koehler
+colorscheme ron
 
 "set showcmd		" Show (partial) command in status line.
 set showmatch		" Show matching brackets.

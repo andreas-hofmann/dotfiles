@@ -86,10 +86,8 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/g
 export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='gvim'
+export EDITOR='vim'
+if [[ -n $DISPLAY ]]; then
   alias vi='gvim &> /dev/null'
 fi
 
