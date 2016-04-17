@@ -51,7 +51,7 @@ end
 
 run_once("urxvtd")
 run_once("unclutter -root")
---run_once("xfsettingsd")
+run_once("xfsettingsd")
 run_once("dropbox start")
 run_once("owncloud")
 run_once("keynav daemonize")
