@@ -805,6 +805,8 @@ client.connect_signal("manage", function (c, startup)
 
         awful.titlebar(c,{size=16}):set_widget(layout)
     end
+
+    awful.placement.centered(c, nil)
 end)
 
 -- No border for maximized clients
