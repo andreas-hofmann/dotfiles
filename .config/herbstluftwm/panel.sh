@@ -9,7 +9,10 @@ function uniq_linebuffered() {
    awk '$0 != l { print ; l=$0 ; fflush(); }' "$@"
 }
 
-herbstclient pad 0 20
+total_height=18
+total_width=$(xdpyinfo | awk -F'[ x]+' '/dimensions:/{print $3}')
+
+herbstclient pad 0 $total_height
 
 {
    conky -c ~/.conkyrc_herbstluft | while read -r; do
@@ -55,6 +58,6 @@ herbstclient pad 0 20
                   ;;
                esac
      done
-} 2> /dev/null |dzen2 -ta l -y 0 -x 0 -h 16 -w 1366 -fg $FG -bg $BG -fn $FONT &
+} 2> /dev/null |dzen2 -ta l -y 0 -x 0 -h $total_height -w $total_width -fg $FG -bg $BG -fn $FONT &
 
 
