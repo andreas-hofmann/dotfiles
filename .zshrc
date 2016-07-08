@@ -234,3 +234,6 @@ hex() {
         return 1
     fi
 }
+
+# Add the nix package manager
+. ~/.nix-profile/etc/profile.d/nix.sh
