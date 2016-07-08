@@ -9,6 +9,8 @@ pager =
 histedit =
 progress =
 mq =
+rebase =
+purge =
 
 [color]
 mode = auto
