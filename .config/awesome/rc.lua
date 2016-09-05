@@ -15,7 +15,6 @@ local beautiful = require("beautiful")
 local naughty   = require("naughty")
 local drop      = require("scratchdrop")
 local lain      = require("lain")
-local debmenu   = require("debian.menu")
 -- }}}
 
 -- {{{ Error handling
@@ -146,7 +145,6 @@ myawesomemenu = {
 mymainmenu = awful.menu.new({
     items = {
         { "awesome", myawesomemenu },
-        { "Debian", debian.menu.Debian_menu.Debian },
         { "Apps", require("menugen").build_menu() },
         { "open terminal", terminal }
     },
