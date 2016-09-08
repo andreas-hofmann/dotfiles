@@ -72,7 +72,7 @@ plugins=(
     svn
     command-not-found
     debian
-    #archlinux
+    archlinux
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -184,6 +184,10 @@ zle -N mquote && bindkey '^q' mquote
 
 ## warning if file exists ('cat /dev/null > ~/.zshrc')
 setopt NO_clobber
+
+# Fix Home/End keys
+bindkey "${terminfo[khome]}" beginning-of-line
+bindkey "${terminfo[kend]}" end-of-line
 
 ## aliases ##
 
