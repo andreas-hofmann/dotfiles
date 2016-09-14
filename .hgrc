@@ -11,6 +11,8 @@ progress =
 mq =
 rebase =
 purge =
+hgk =
+graphlog =
 
 [color]
 mode = auto
