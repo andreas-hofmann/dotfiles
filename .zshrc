@@ -240,4 +240,6 @@ hex() {
 }
 
 # Add the nix package manager
-. ~/.nix-profile/etc/profile.d/nix.sh
+if [ -d ~/.nix-profile ]; then
+    . ~/.nix-profile/etc/profile.d/nix.sh
+fi
