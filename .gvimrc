@@ -12,7 +12,7 @@ scriptencoding utf-8
 " great annoyance of users.
 
 " Pre-GUI settings
-set columns=150 lines=130       " don't inherit geometry from parent term
+set columns=150 lines=50       " don't inherit geometry from parent term
 set mousemodel=popup          " right mouse button pops up a menu in the GUI
 
 " Use a sufficiently wide window automatically when started as "gvimdiff"
