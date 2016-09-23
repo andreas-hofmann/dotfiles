@@ -193,10 +193,10 @@ bindkey "${terminfo[kpp]}" up-line-or-history
 bindkey "${terminfo[kdch1]}" delete-char
 bindkey "${terminfo[kend]}" end-of-line
 bindkey "${terminfo[knp]}" down-line-or-history
-bindkey "${terminfo[kcuu1]}" up-line-or-search
 bindkey "${terminfo[kcub1]}" backward-char
-bindkey "${terminfo[kcud1]}" down-line-or-search
 bindkey "${terminfo[kcuf1]}" forward-char
+#bindkey "${terminfo[kcuu1]}" up-line-or-search
+#bindkey "${terminfo[kcud1]}" down-line-or-search
 
 ## aliases ##
 
