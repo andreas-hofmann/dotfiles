@@ -7,7 +7,7 @@
 --]]
 
 
-theme                               = {}
+local theme                         = {}
 
 theme.confdir                       = os.getenv("HOME") .. "/.config/awesome/themes/multicolor"
 theme.wallpaper                     = theme.confdir .. "/wallpaper"
@@ -36,8 +36,8 @@ theme.border_width                  = "1"
 theme.border_normal                 = "#1c2022"
 theme.border_focus                  = "#606060"
 theme.border_marked                 = "#3ca4d8"
-theme.menu_width                    = "110"
-theme.menu_border_width             = "0"
+theme.menu_width                    = 110
+theme.menu_border_width             = 0
 theme.menu_fg_normal                = "#aaaaaa"
 theme.menu_fg_focus                 = "#ff8c00"
 theme.menu_bg_normal                = "#050505dd"
@@ -78,6 +78,8 @@ theme.layout_max                    = theme.confdir .. "/icons/max.png"
 theme.layout_fullscreen             = theme.confdir .. "/icons/fullscreen.png"
 theme.layout_magnifier              = theme.confdir .. "/icons/magnifier.png"
 theme.layout_floating               = theme.confdir .. "/icons/floating.png"
+
+theme.useless_gp		    = 0
 
 theme.titlebar_close_button_focus  = "/usr/share/awesome/themes/zenburn/titlebar/close_focus.png"
 theme.titlebar_close_button_normal = "/usr/share/awesome/themes/zenburn/titlebar/close_normal.png"
