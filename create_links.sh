@@ -54,13 +54,18 @@ function link_dir {
 }
 
 for script in $(find ${SCRIPTPATH} -type f -iname '\.*'); do
+	if [ "${script}" = ".gitmodules" ]; then
+		# Don't copy git info, skip to next directory
+		continue
+	fi
 	link_script ${script}
 done
 
 for dir in $(find ${SCRIPTPATH} -maxdepth 1 -type d -iname '\.*'); do
 	directory=$(basename ${dir})
+	echo "dir = ${directory}"
 
-	if [ ${directory} = ".git" ]; then
+	if [ "${directory}" = ".git" ]; then
 		# Don't copy git info, skip to next directory
 		continue
 	elif [ ${directory} = ".config" ]; then
