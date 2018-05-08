@@ -277,16 +277,20 @@ map <C-t> <Esc>:tabnew .<CR>
 "set foldmethod=indent
 
 " undo/redo
-if v:version >= 703
-    set undofile
-    set undolevels=1000 "maximum number of changes that can be undone
-    set undoreload=10000 "maximum number lines to save for undo on a
-"   buffer reload
-    set undodir=~/.vim/undo
+if isdirectory(expand("~/.vim/undo"))
+    if v:version >= 703
+        set undofile
+        set undolevels=1000 "maximum number of changes that can be undone
+        set undoreload=10000 "maximum number lines to save for undo on a
+"       buffer reload
+        set undodir=~/.vim/undo
+    endif
 endif
 
 " swapfile location
-set backupdir=~/.vim/swp
+if isdirectory(expand("~/.vim/swp"))
+    set backupdir=~/.vim/swp
+endif
 
 set listchars=trail:~,eol:$,nbsp:_
 
