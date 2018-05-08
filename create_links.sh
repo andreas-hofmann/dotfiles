@@ -16,6 +16,14 @@ if [ ! -d ${HOME}/.oh-my-zsh ]; then
 	fi
 fi
 
+if [ ! -d ${HOME}/.config/omf ]; then
+	read -p "oh-my-fish not found - install? [Yn] " -n 1 -r
+	echo
+	if [[ $REPLY =~ ^[Yy]?$ ]]; then
+		curl -L https://get.oh-my.fish | fish
+	fi
+fi
+
 function link_script {
 	script=$(basename $1)
 
