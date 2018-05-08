@@ -252,3 +252,12 @@ hex() {
 if [ -d ~/.nix-profile ]; then
     . ~/.nix-profile/etc/profile.d/nix.sh
 fi
+
+# Enable colors for ls, etc.  Prefer ~/.dir_colors #64489
+if type -p dircolors >/dev/null ; then
+	if [[ -f ~/.dir_colors ]] ; then
+		eval $(dircolors -b ~/.dir_colors)
+	elif [[ -f /etc/DIR_COLORS ]] ; then
+		eval $(dircolors -b /etc/DIR_COLORS)
+	fi
+fi

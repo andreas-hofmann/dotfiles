@@ -85,3 +85,12 @@ export LESS_TERMCAP_se=$'\E[0m'
 export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
+
+# Enable colors for ls, etc.  Prefer ~/.dir_colors #64489
+if type -P dircolors >/dev/null ; then
+	if [[ -f ~/.dir_colors ]] ; then
+		eval $(dircolors -b ~/.dir_colors)
+	elif [[ -f /etc/DIR_COLORS ]] ; then
+		eval $(dircolors -b /etc/DIR_COLORS)
+	fi
+fi
