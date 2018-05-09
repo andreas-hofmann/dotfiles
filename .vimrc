@@ -292,7 +292,7 @@ if isdirectory(expand("~/.vim/swp"))
     set backupdir=~/.vim/swp
 endif
 
-set listchars=trail:~,eol:$,nbsp:_
+set listchars=trail:~,eol:$,nbsp:_,tab:>\      "
 
 let g:changelog_username="Andreas Hofmann <mail@andreas-hofmann.org>"
 
