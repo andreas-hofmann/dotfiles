@@ -35,3 +35,5 @@ set guioptions-=e	" Set regular vim-tabs in gui
 set guioptions-=m	" Disable menu in gui
 
 set gfn=Monospace\ 9
+
+autocmd GUIEnter * set vb t_vb=
