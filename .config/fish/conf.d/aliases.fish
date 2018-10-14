@@ -6,4 +6,4 @@ if test -n "$DISPLAY"
   alias vi='gvim > /dev/null ^ /dev/null'
 end
 
-export PAGER='most'
+#export PAGER='most'
