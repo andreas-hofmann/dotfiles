@@ -51,7 +51,7 @@ CASE_SENSITIVE="true"
 plugins=(
     compleat
     gnu-utils
-    #sudo
+    sudo
     vi-mode
     terminfo
     history-substring-search
@@ -61,21 +61,22 @@ plugins=(
     common-aliases
     colorize
     git
-    #ruby
     python
     systemd
-    screen
+    tmux
     pip
-    django
-    postgres
-    #rsync
-    svn
+    sync
     command-not-found
     debian
-    archlinux
+    wd
+    repo
+    shrink-path
 )
 
 source $ZSH/oh-my-zsh.sh
+
+local syntax_highlighting=/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+test -r $syntax_highlighting && source $syntax_highlighting
 
 # User configuration
 
