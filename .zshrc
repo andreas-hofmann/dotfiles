@@ -53,7 +53,6 @@ plugins=(
     gnu-utils
     sudo
     vi-mode
-    terminfo
     history-substring-search
     cp
     copydir
@@ -65,7 +64,6 @@ plugins=(
     systemd
     tmux
     pip
-    sync
     command-not-found
     debian
     wd
