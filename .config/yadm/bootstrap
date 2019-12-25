@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [ ! -d ${HOME}/.oh-my-zsh ]; then
+	read -p "oh-my-zsh not found - install? [Yn] " -n 1 -r
+	echo
+	if [[ $REPLY =~ ^[Yy]?$ ]]; then
+		sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+	fi
+fi
+
+if [ -x /usr/sbin/pacman ]; then
+	sudo pacman -S --needed $(comm -12 <(pacman -Slq | sort) <(sort pkglist.txt))
+fi
+
+if [ -x /usr/sbin/yay ]; then
+	yay -S --needed - <(sort pkglist-aur.txt)
+fi

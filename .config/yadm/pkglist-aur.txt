@@ -1,0 +1,8 @@
+duplicacy-util
+git-remote-gcrypt
+ledger-udev
+megasync
+opencl-amd
+packup
+pam_mount-git
+yadm
