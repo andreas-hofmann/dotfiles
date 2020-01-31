@@ -13,5 +13,6 @@ if [ -x /usr/sbin/pacman ]; then
 fi
 
 if [ -x /usr/sbin/yay ]; then
-	yay -S --needed - <(sort pkglist-aur.txt)
+	echo "Install aur packages like this:"
+	echo -e "    yay -S --needed - <(sort pkglist-aur.txt)"
 fi
