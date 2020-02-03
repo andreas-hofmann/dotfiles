@@ -9,7 +9,7 @@ if [ ! -d ${HOME}/.oh-my-zsh ]; then
 fi
 
 if [ -x /usr/sbin/pacman ]; then
-	sudo pacman -S --needed $(comm -12 <(pacman -Slq | sort) <(sort pkglist.txt))
+	sudo pacman -S --needed $(comm -12 <(pacman -Slq | sort) <(sort pkglist-pacman.txt))
 fi
 
 if [ -x /usr/sbin/yay ]; then
