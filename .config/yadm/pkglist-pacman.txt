@@ -52,9 +52,12 @@ ntfs-3g
 openvpn
 paperwork
 pcloud-drive
+pcsclite
+pdfgrep
 plasma-browser-integration
 ps_mem
 rawtherapee
+ripgrep
 rsync
 sed
 sshuttle
