@@ -1,7 +1,9 @@
+byobu
 duplicacy-util
 git-remote-gcrypt
 ledger-udev
 megasync
+ocrmypdf
 opencl-amd
 packup
 pam_mount-git
