@@ -1,6 +1,7 @@
 byobu
 duplicacy-util
 git-remote-gcrypt
+grml-rescueboot
 ledger-udev
 megasync
 ocrmypdf

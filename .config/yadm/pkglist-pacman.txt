@@ -22,6 +22,7 @@ exfat-utils
 f2fs-tools
 file
 findutils
+fscrypt
 gajim
 gawk
 geeqie
@@ -54,6 +55,7 @@ paperwork
 pcloud-drive
 pcsclite
 pdfgrep
+pdftk
 plasma-browser-integration
 ps_mem
 rawtherapee
