@@ -12,7 +12,10 @@ scriptencoding utf-8
 " You can override any of these settings on a global basis via the
 " "/etc/vim/vimrc.local" file, and on a per-user basis via "~/.vimrc". You may
 " need to create these.
-"
+
+" Source the grml vimrc
+source ~/.vimrc.grml
+
 " {{{ VundleVim settings
 if isdirectory(expand("~/.vim/bundle/Vundle.vim"))
   set nocompatible              " be iMproved, required
