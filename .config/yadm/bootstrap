@@ -5,6 +5,8 @@ if [ ! -d ${HOME}/.oh-my-zsh ]; then
 	echo
 	if [[ $REPLY =~ ^[Yy]?$ ]]; then
 		sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+		
+		\mv .zshrc.pre-oh-my-zsh .zshrc
 	fi
 fi
 
