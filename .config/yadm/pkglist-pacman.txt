@@ -7,7 +7,6 @@ bwm-ng
 bzip2
 clinfo
 code
-colord-kde
 coreutils
 cpupower
 cronie
@@ -36,10 +35,6 @@ intel-ucode
 iproute2
 iptables
 iputils
-kdebase-meta
-kdepim-meta
-kdepim-addons
-kdeutils-meta
 keynav
 less
 libva-intel-driver

@@ -12,6 +12,12 @@ fi
 
 if [ -x /usr/sbin/pacman ]; then
 	sudo pacman -S --needed $(comm -12 <(pacman -Slq | sort) <(sort ~/.config/yadm/pkglist-pacman.txt))
+
+	read -p "Install KDE packages? [Yn] " -n 1 -r
+	echo
+	if [[ $REPLY =~ ^[Yy]?$ ]]; then
+		sudo pacman -S --needed $(comm -12 <(pacman -Slq | sort) <(sort ~/.config/yadm/pkglist-pacman-kde.txt))
+	fi
 fi
 
 if [ -x /usr/sbin/yay ]; then

@@ -1,0 +1,5 @@
+colord-kde
+kdebase-meta
+kdepim-meta
+kdepim-addons
+kdeutils-meta
