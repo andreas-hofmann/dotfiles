@@ -7,6 +7,8 @@ bindkey -v
 export EDITOR='vim'
 if [[ -n $DISPLAY ]]; then
   alias vi='gvim &> /dev/null'
+else
+  alias vi='vim'
 fi
 
 # Use syntax highlighting
