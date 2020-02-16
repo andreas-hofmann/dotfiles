@@ -52,32 +52,6 @@ if isdirectory(expand("~/.vim/bundle/Vundle.vim"))
   " Put your non-Plugin stuff after this line
 endif
 
-" {{{ General settings
-" The following are some sensible defaults for Vim for most users.
-" We attempt to change as little as possible from Vim's defaults,
-" deviating only where it makes sense
-set nocompatible        " Use Vim defaults (much better!)
-set bs=2                " Allow backspacing over everything in insert mode
-set ai                  " Always set auto-indenting on
-set history=1000         " keep 50 lines of command history
-set ruler               " Show the cursor position all the time
-
-set viminfo='20,\"500   " Keep a .viminfo file.
-
-" Don't use Ex mode, use Q for formatting
-map Q gq
-
-" When doing tab completion, give the following files lower priority. You may
-" wish to set 'wildignore' to completely ignore files, and 'wildmenu' to enable
-" enhanced tab completion. These can be done in the user vimrc file.
-set suffixes+=.info,.aux,.log,.dvi,.bbl,.out,.o,.lo
-
-" When displaying line numbers, don't use an annoyingly wide number column. This
-" doesn't enable line numbers -- :set number will do that. The value given is a
-" minimum width to use for the number column, not a fixed size.
-if v:version >= 700
-  set numberwidth=3
-endif
 " }}}
 
 " {{{ Modeline settings
@@ -124,7 +98,6 @@ set fileencodings+=default
 " Also switch on highlighting the last used search pattern.
 if &t_Co > 2 || has("gui_running")
   syntax on
-  set hlsearch
 endif
 " }}}
 
@@ -213,7 +186,7 @@ augroup END
 endif " has("autocmd")
 " }}}
 
-" vim: set fenc=utf-8 tw=80 sw=2 sts=2 et foldmethod=marker :
+" {{{ Autocmd settings
 
 "Python Stuff goes here:
 autocmd BufRead *.py set tabstop=4
@@ -257,29 +230,9 @@ autocmd BufRead *.htmldjango set smarttab
 autocmd BufRead *.htmldjango set expandtab
 autocmd BufRead *.htmldjango set softtabstop=2
 autocmd BufRead *.htmldjango set autoindent
+" }}}
 
-"Set colorscheme
-colorscheme ron
-
-"set showcmd		" Show (partial) command in status line.
-set showmatch		" Show matching brackets.
-set ignorecase		" Do case insensitive matching
-set smartcase		" Do smart case matching
-set incsearch		" Incremental search
-set autowrite		" Automatically save before commands like :next and :make
-"set hidden             " Hide buffers when they are abandoned
-set mouse=a		" Enable mouse usage (all modes)
-
-set nocp		" Set code completion on
-
-" enable mouse
-set mousemodel=extend
-
-map <C-t> <Esc>:tabnew .<CR>
-
-"set foldmethod=indent
-
-" undo/redo
+" {{{ undo/redo
 if isdirectory(expand("~/.vim/undo"))
     if v:version >= 703
         set undofile
@@ -294,16 +247,66 @@ endif
 if isdirectory(expand("~/.vim/swp"))
     set backupdir=~/.vim/swp
 endif
+" }}}
 
-set listchars=trail:~,eol:$,nbsp:_,tab:>\      "
+" {{{ Tweak tab navigation
+noremap <C-h> gT
+noremap <C-l> gt
+map <C-t> <Esc>:tabnew .<CR>
+" }}}
 
-let g:changelog_username="Andreas Hofmann <mail@andreas-hofmann.org>"
+" {{{ General settings
+
+set nocompatible        " Use Vim defaults (much better!)
+set bs=2                " Allow backspacing over everything in insert mode
+set ai                  " Always set auto-indenting on
+set history=1000         " keep 50 lines of command history
+set ruler               " Show the cursor position all the time
+
+"Set colorscheme
+colorscheme ron
+
+"set showcmd		" Show (partial) command in status line.
+set showmatch		" Show matching brackets.
+set ignorecase		" Do case insensitive matching
+set smartcase		" Do smart case matching
+set incsearch		" Incremental search
+set autowrite		" Automatically save before commands like :next and :make
+set hlsearch            " Highlight search results
+"set hidden             " Hide buffers when they are abandoned
+set mouse=a		" Enable mouse usage (all modes)
+set nocp		" Less compatibility
+
+"Commented out - Don't override gmrls setting.
+"set listchars=trail:~,eol:$,nbsp:_,tab:>\      "
 
 set statusline=%<%F%h%m%r%h%w%y\ %{&ff}\ %{strftime(\"%c\",getftime(expand(\"%:p\")))}%=\ lin:%l\,%L\ col:%c%V\ pos:%o\ ascii:%b\ %P
 set laststatus=2
 
 set number
 
-" Tweak tab navigation
-noremap <C-h> gT
-noremap <C-l> gt
+" enable mouse
+set mousemodel=extend
+
+set viminfo='20,\"500   " Keep a .viminfo file.
+
+" Don't use Ex mode, use Q for formatting
+map Q gq
+
+" When doing tab completion, give the following files lower priority. You may
+" wish to set 'wildignore' to completely ignore files, and 'wildmenu' to enable
+" enhanced tab completion. These can be done in the user vimrc file.
+set suffixes+=.info,.aux,.log,.dvi,.bbl,.out,.o,.lo
+
+" When displaying line numbers, don't use an annoyingly wide number column. This
+" doesn't enable line numbers -- :set number will do that. The value given is a
+" minimum width to use for the number column, not a fixed size.
+if v:version >= 700
+  set numberwidth=3
+endif
+" }}}
+
+let g:changelog_username="Andreas Hofmann <mail@andreas-hofmann.org>"
+set foldmethod=marker
+
+" vim: set fenc=utf-8 sw=4 sts=4 et foldmethod=marker :
