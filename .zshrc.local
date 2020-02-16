@@ -1,16 +1,5 @@
 ## Own serrings start here.
 
-# Use vi mode by default
-bindkey -v
-
-# Alias svi to gvim when running on a display
-export EDITOR='vim'
-if [[ -n $DISPLAY ]]; then
-  alias vi='gvim &> /dev/null'
-else
-  alias vi='vim'
-fi
-
 # Use syntax highlighting
 local syntax_highlighting=/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 test -r $syntax_highlighting && source $syntax_highlighting
@@ -20,7 +9,7 @@ if [ -d ~/.nix-profile ]; then
     . ~/.nix-profile/etc/profile.d/nix.sh
 fi
 
-## Set some options
+## {{{ Set some options
 
 setopt extendedglob
 setopt extended_glob
@@ -41,7 +30,9 @@ setopt histignorespace
 setopt histignorealldups
 setopt extended_history
 
-## Key bindings
+# }}}
+
+## {{{ Key bindings
 
 # use the vi navigation keys (hjkl) besides cursor keys in menu completion
 bindkey -M menuselect 'h' vi-backward-char        # left
@@ -55,7 +46,9 @@ bindkey -v
 # Restore default ALT+. behaviour
 bindkey '\e.' insert-last-word
 
-## Aliases ##
+# }}}
+
+## {{{ Aliases
 
 alias ls='ls --color=auto -lh'
 alias la='ls --color=auto -lha'
@@ -79,7 +72,17 @@ alias top10='print -l ${(o)history%% *} | uniq -c | sort -nr | head -n 10'
 # Fetch the latest grml-zsh-config
 alias update-grml-zshrc="wget -O .zshrc.grml https://git.grml.org/f/grml-etc-core/etc/zsh/zshrc"
 
-## Functions ##
+# Alias vi to gvim when running on a display
+export EDITOR='vim'
+if [[ -n $DISPLAY ]]; then
+  alias vi='gvim &> /dev/null'
+else
+  alias vi='vim'
+fi
+
+# }}}
+
+## {{{ Functions
 
 # Switching shell safely and efficiently? http://www.zsh.org/mla/workers/2001/msg02410.html
 bash() {
@@ -125,3 +128,7 @@ hex() {
         return 1
     fi
 }
+
+# }}}
+
+# vim: set fenc=utf-8 sw=4 sts=4 et foldmethod=marker :
