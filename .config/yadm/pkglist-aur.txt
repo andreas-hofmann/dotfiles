@@ -1,4 +1,5 @@
 byobu
+direnv
 duplicacy-util
 git-remote-gcrypt
 grml-rescueboot

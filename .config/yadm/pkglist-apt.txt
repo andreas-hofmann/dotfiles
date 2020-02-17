@@ -6,12 +6,14 @@ bzip2
 clinfo
 code
 colord-kde
+colordiff
 coreutils
 cryptsetup
 darktable
 dfc
 diffutils
 digikam
+direnv
 displaycal
 ecryptfs-utils
 exfat-utils
@@ -33,6 +35,7 @@ keynav
 less
 linux-firmware
 mdadm
+meld
 mosh
 ncdu
 nextcloud-desktop
@@ -45,6 +48,7 @@ rawtherapee
 ripgrep
 rsync
 sed
+sshfs
 sshuttle
 spectre-meltdown-checker
 tesseract-ocr

@@ -7,6 +7,7 @@ bwm-ng
 bzip2
 clinfo
 code
+colordiff
 coreutils
 cpupower
 cronie
@@ -41,6 +42,7 @@ libva-intel-driver
 linux-firmware
 mdadm
 megasync
+meld
 mosh
 ncdu
 nextcloud-client
@@ -57,6 +59,7 @@ rawtherapee
 ripgrep
 rsync
 sed
+sshfs
 sshuttle
 spectre-meltdown-checker
 tesseract
