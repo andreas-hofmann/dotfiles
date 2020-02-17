@@ -17,3 +17,7 @@ fi
 if [ $USE_OMZ_ZSHRC -eq 1 -a -f ~/.zshrc.oh-my-zsh ]; then
 	source ~/.zshrc.oh-my-zsh
 fi
+
+if [ -x /usr/bin/direnv ]; then
+	eval "$(/usr/bin/direnv hook zsh)"
+fi
