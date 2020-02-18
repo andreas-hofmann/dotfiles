@@ -92,9 +92,6 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # get top 10 shell commands:
 alias top10='print -l ${(o)history%% *} | uniq -c | sort -nr | head -n 10'
 
-# Fetch the latest grml-zsh-config
-alias update-grml-zshrc="wget -O .zshrc.grml https://git.grml.org/f/grml-etc-core/etc/zsh/zshrc"
-
 # Alias vi to gvim when running on a display
 export EDITOR='vim'
 if [[ -n $DISPLAY ]]; then
