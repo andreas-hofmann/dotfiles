@@ -132,20 +132,6 @@ RPS1='${return_code} %{$reset_color%}%{$fg_bold[$ZSH_THEME_COLOR_PWD]%}[$(shrink
 
 # }}}
 
-# {{{ Functions
-
-# press ctrl-q to quote line:
-mquote () {
-      zle beginning-of-line
-      zle forward-word
-      RBUFFER="'$RBUFFER'"
-      # RBUFFER=${(q)RBUFFER}
-      zle end-of-line
-}
-zle -N mquote && bindkey '^q' mquote
-
-# }}}
-
 # {{{ Fix key bindings
 
 bindkey "${terminfo[kich1]}" overwrite-mode
@@ -160,32 +146,5 @@ bindkey "${terminfo[kcuf1]}" forward-char
 #bindkey "${terminfo[kcud1]}" down-line-or-search
 
 # }}}
-
-# {{{ Colors
-
-# Enable colors for ls, etc.  Prefer ~/.dir_colors #64489
-if type -p dircolors >/dev/null ; then
-	if [[ -f ~/.dir_colors ]] ; then
-		eval $(dircolors -b ~/.dir_colors)
-	elif [[ -f /etc/DIR_COLORS ]] ; then
-		eval $(dircolors -b /etc/DIR_COLORS)
-	fi
-fi
-
-# Stuff taken from the grml zsh default config #
-
-# Colored output for less
-export LESS_TERMCAP_mb=$'\E[01;31m'
-export LESS_TERMCAP_md=$'\E[01;31m'
-export LESS_TERMCAP_me=$'\E[0m'
-export LESS_TERMCAP_se=$'\E[0m'
-export LESS_TERMCAP_so=$'\E[01;44;33m'
-export LESS_TERMCAP_ue=$'\E[0m'
-export LESS_TERMCAP_us=$'\E[01;32m'
-
-# }}}
-
-# Source .zshrc.local (like grml's zshrc)
-source ~/.zshrc.local
 
 # vim: set fenc=utf-8 sw=4 sts=4 et foldmethod=marker :
