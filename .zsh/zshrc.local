@@ -1,18 +1,5 @@
 ## Own settings start here.
 
-# {{{ Use syntax highlighting
-
-local fsh=/${HOME}/.zsh-plugins/fsh/fast-syntax-highlighting.plugin.zsh
-local syntax_highlighting=/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-if [ -r $fsh ]; then
-    source $fsh
-elif [ -r $syntax_highlighting ]; then
-    source $syntax_highlighting
-fi
-
-# }}}
-
 # {{{ Colors
 
 # Enable colors for ls, etc.  Prefer ~/.dir_colors #64489

@@ -94,6 +94,19 @@ zstyle ':completion:*' special-dirs true
 
 # }}}
 
+# {{{ Use syntax highlighting
+
+local fsh=/${HOME}/.zsh/plugins/fsh/fast-syntax-highlighting.plugin.zsh
+local syntax_highlighting=/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+if [ -r $fsh ]; then
+    source $fsh
+elif [ -r $syntax_highlighting ]; then
+    source $syntax_highlighting
+fi
+
+# }}}
+
 # {{{ Recursive history search
 
 # bind UP and DOWN arrow keys
