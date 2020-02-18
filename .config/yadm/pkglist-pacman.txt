@@ -55,6 +55,7 @@ pdfgrep
 pdftk
 plasma-browser-integration
 ps_mem
+python-llfuse
 rawtherapee
 ripgrep
 rsync
