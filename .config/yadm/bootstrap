@@ -10,6 +10,26 @@ if [ ! -d ${HOME}/.oh-my-zsh ]; then
 	fi
 fi
 
+if [ ! -d ${HOME}/.vim/bundle/Vundle.vim ]; then
+	read -p "Vundle.vim not found - install? [yn] " -n 1 -r
+	echo
+	if [[ $REPLY =~ ^[Yy]?$ ]]; then
+		mkdir -p ${HOME}/.vim/bundle && \
+			git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+	fi
+fi
+
+if [ ! -d ${HOME}/.zsh-plugins ]; then
+	read -p "Clone zsh plusing? [yn] " -n 1 -r
+	echo
+	if [[ $REPLY =~ ^[Yy]?$ ]]; then
+		mkdir -p ${HOME}/.zsh-plugins && \
+			git clone https://github.com/zdharma/fast-syntax-highlighting ${HOME}/.zsh-plugins/fsh
+	fi
+fi
+
+echo "Installing package selection..."
+
 if [ -x /usr/sbin/pacman ]; then
 	sudo pacman -S --needed $(comm -12 <(pacman -Slq | sort) <(sort ~/.config/yadm/pkglist-pacman.txt))
 
