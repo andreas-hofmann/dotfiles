@@ -9,15 +9,6 @@ fi
 
 # {{{ functions
 
-# Update shell files.
-function shell_update {
-	echo "Updating zshrc.grml..."
-	curl -L https://git.grml.org/f/grml-etc-core/etc/zsh/zshrc > ${HOME}/.zsh/zshrc.grml
-
-	echo "Updating antigen.zsh..."
-	curl -L git.io/antigen > ${HOME}/.zsh/antigen.zsh
-}
-
 # Initial setup for zshrcs. Runs in a subshell.
 function bootstrap {
 	(
@@ -43,16 +34,20 @@ function bootstrap {
 
 # {{{ Source the individual configs.
 
-source ${HOME}/.zsh/zshrc.grml
+if [ ! -r "${HOME}/.zsh/zshrc.local" ] ; then
+	echo " zsh not set up. Call bootstrap()!"
+else
+	source ${HOME}/.zsh/zshrc.grml
 
-prompt off
+	prompt off
 
-source ${HOME}/.zsh/zshrc.antigen
+	source ${HOME}/.zsh/zshrc.antigen
 
-source ${HOME}/.zsh/zshrc.local
+	source ${HOME}/.zsh/zshrc.local
 
-if [ -x /usr/bin/direnv ]; then
-	eval "$(/usr/bin/direnv hook zsh)"
+	if [ -x /usr/bin/direnv ]; then
+		eval "$(/usr/bin/direnv hook zsh)"
+	fi
 fi
  
 # }}}
