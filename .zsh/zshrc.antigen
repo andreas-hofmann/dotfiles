@@ -1,0 +1,56 @@
+source ${HOME}/.zsh/antigen.zsh
+
+# {{{ Setup antigen plugins
+
+# Load the oh-my-zsh's library.
+antigen use oh-my-zsh
+
+# Bundles from the default repo (robbyrussell's oh-my-zsh).
+antigen bundle compleat
+antigen bundle gnu-utils
+antigen bundle sudo
+antigen bundle vi-mode
+antigen bundle history-substring-search
+antigen bundle cp
+antigen bundle copydir
+antigen bundle copyfile
+antigen bundle common-aliases
+antigen bundle colorize
+antigen bundle tmux
+antigen bundle command-not-found
+antigen bundle wd
+antigen bundle shrink-path
+antigen bundle gitfast
+
+# Syntax highlighting bundle.
+#antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zdharma/fast-syntax-highlighting
+
+# Load the theme.
+antigen theme romkatv/powerlevel10k
+
+# Tell Antigen that you're done.
+antigen apply
+
+# }}}
+
+# {{{ Recursive history search
+
+# bind UP and DOWN arrow keys
+zmodload zsh/terminfo
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
+# same for ubuntu
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+# bind P and N for EMACS mode
+bindkey -M emacs '^P' history-substring-search-up
+bindkey -M emacs '^N' history-substring-search-down
+# bind k and j for VI mode
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
+# Recursive searching through history
+bindkey '^R' history-incremental-search-backward
+bindkey '^F' history-incremental-search-forward
+
+# }}}
