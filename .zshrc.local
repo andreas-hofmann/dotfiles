@@ -1,13 +1,24 @@
 ## Own serrings start here.
 
-# Use syntax highlighting
-local syntax_highlighting=/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-test -r $syntax_highlighting && source $syntax_highlighting
+# {{{ Use syntax highlighting
 
-# Add the nix package manager
+local fsh=/${HOME}/.zsh-plugins/fsh/fast-syntax-highlighting.plugin.zsh
+local syntax_highlighting=/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+if [ -r $fsh ]; then
+    source $fsh
+elif [ -r $syntax_highlighting ]; then
+    source $syntax_highlighting
+fi
+
+# }}}
+
+# {{{ Add the nix package manager
 if [ -d ~/.nix-profile ]; then
     . ~/.nix-profile/etc/profile.d/nix.sh
 fi
+
+# }}}
 
 ## {{{ Set some options
 
