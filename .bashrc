@@ -97,5 +97,5 @@ fi
 
 # Setup direnv.
 if [ -x /usr/bin/direnv ]; then
-	eval "$(/usr/bin/direnv hook zsh)"
+	eval "$(/usr/bin/direnv hook bash)"
 fi
