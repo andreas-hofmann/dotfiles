@@ -28,6 +28,8 @@ function bootstrap {
 	curl -L git.io/antigen > ${HOME}/.zsh/antigen.zsh
 
 	)
+	
+	source ${HOME}/.zshrc
 }
 
 # }}}
