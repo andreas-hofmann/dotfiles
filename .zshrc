@@ -11,26 +11,27 @@ fi
 
 # Initial setup for zshrcs. Runs in a subshell.
 function bootstrap {
-	(
+	echo "Bootstrapping config files."
 
-	cd $HOME
+	mkdir -p $HOME/.zsh
 
-	mkdir -p .zsh
+	local url="https://github.com/andreas-hofmann/dotfiles/raw/master"
 
-	wget https://github.com/andreas-hofmann/dotfiles/raw/master/.zlogout 
-	wget https://github.com/andreas-hofmann/dotfiles/raw/master/.p10k.zsh
+	echo "Fetching .zlogout..."
+	curl --progress-bar -L $url/.zlogout		> $HOME/.zlogout
+	echo "Fetching .p10k.zsh..."
+	curl --progress-bar -L $url/.p10k.zsh		> $HOME/.p10k.zsh
+	echo "Fetching .zsh/zshrc.local..."
+	curl --progress-bar -L $url/.zsh/zshrc.local	> $HOME/.zsh/zshrc.local
+	echo "Fetching .zsh/zshrc.antigen..."
+	curl --progress-bar -L $url/.zsh/zshrc.antigen	> $HOME/.zsh/zshrc.antigen
+	echo "Fetching .zsh/zshrc.grml..."
+	curl --progress-bar -L $url/.zsh/zshrc.grml	> $HOME/.zsh/zshrc.grml
 
-	cd $HOME/.zsh
-
-	wget https://github.com/andreas-hofmann/dotfiles/raw/master/.zsh/zshrc.local
-	wget https://github.com/andreas-hofmann/dotfiles/raw/master/.zsh/zshrc.antigen
-	wget https://github.com/andreas-hofmann/dotfiles/raw/master/.zsh/zshrc.grml
-
-	curl -L git.io/antigen > ${HOME}/.zsh/antigen.zsh
-
-	)
+	echo "Fetching .zsh/antigen.zsh..."
+	curl --progress-bar -L git.io/antigen		> ${HOME}/.zsh/antigen.zsh
 	
-	source ${HOME}/.zshrc
+	echo "Done. Restart the shell!"
 }
 
 # }}}
