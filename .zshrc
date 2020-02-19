@@ -30,6 +30,10 @@ function bootstrap {
 
 	echo "Fetching .zsh/antigen.zsh..."
 	curl --progress-bar -L git.io/antigen		> ${HOME}/.zsh/antigen.zsh
+	#curl --progress-bar -L $url/.zsh/antigen.zsh	> $HOME/.zsh/antigen.zsh
+
+	echo "Updating .zshrc..."
+	curl --progress-bar -L $url/.zshrc		> $HOME/.zshrc
 	
 	echo "Done. Restart the shell!"
 }
