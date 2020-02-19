@@ -18,13 +18,14 @@ function bootstrap {
 	mkdir -p .zsh
 
 	wget https://github.com/andreas-hofmann/dotfiles/raw/master/.zlogout 
+	wget https://github.com/andreas-hofmann/dotfiles/raw/master/.p10k.zsh
 
 	cd $HOME/.zsh
 
 	wget https://github.com/andreas-hofmann/dotfiles/raw/master/.zsh/zshrc.local
 	wget https://github.com/andreas-hofmann/dotfiles/raw/master/.zsh/zshrc.antigen
+	wget https://github.com/andreas-hofmann/dotfiles/raw/master/.zsh/zshrc.grml
 
-	curl -L https://git.grml.org/f/grml-etc-core/etc/zsh/zshrc > ${HOME}/.zsh/zshrc.grml
 	curl -L git.io/antigen > ${HOME}/.zsh/antigen.zsh
 
 	)
