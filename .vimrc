@@ -13,8 +13,26 @@ scriptencoding utf-8
 " "/etc/vim/vimrc.local" file, and on a per-user basis via "~/.vimrc". You may
 " need to create these.
 
-" Source the grml vimrc
-source ~/.vimrc.grml
+" {{{ Setup cache dir
+let cachedir=expand('~/.cache/vim')
+
+if !isdirectory(cachedir)
+   call mkdir(cachedir, "p", 0700)
+endif
+" }}}
+
+"" {{{ Fetch + source the grml vimrc
+let grmlrc=expand('~/.vimrc.grml')
+if !filereadable(grmlrc)
+    echo "Fetching zshrc.grml..."
+    echo ""
+    silent !curl -L https://github.com/andreas-hofmann/dotfiles/raw/master/.vimrc.grml > ~/.vimrc.grml
+endif
+
+if filereadable(grmlrc)
+    source ~/.vimrc.grml
+endif
+" }}}
 
 " {{{ Setting up Vundle - the vim plugin bundler
 
@@ -64,22 +82,6 @@ set nomodeline
 " }}}
 
 " {{{ Locale settings
-" Try to come up with some nice sane GUI fonts. Also try to set a sensible
-" value for fileencodings based upon locale. These can all be overridden in
-" the user vimrc file.
-if v:lang =~? "^ko"
-  set fileencodings=euc-kr
-  set guifontset=-*-*-medium-r-normal--16-*-*-*-*-*-*-*
-elseif v:lang =~? "^ja_JP"
-  set fileencodings=euc-jp
-  set guifontset=-misc-fixed-medium-r-normal--14-*-*-*-*-*-*-*
-elseif v:lang =~? "^zh_TW"
-  set fileencodings=big5
-  set guifontset=-sony-fixed-medium-r-normal--16-150-75-75-c-80-iso8859-1,-taipei-fixed-medium-r-normal--16-150-75-75-c-160-big5-0
-elseif v:lang =~? "^zh_CN"
-  set fileencodings=gb2312
-  set guifontset=*-r-*
-endif
 
 " If we have a BOM, always honour that rather than trying to guess.
 if &fileencodings !~? "ucs-bom"
@@ -185,11 +187,6 @@ augroup gentoo
 
 augroup END
 
-endif " has("autocmd")
-" }}}
-
-" {{{ Autocmd settings
-
 "Python Stuff goes here:
 autocmd BufRead *.py set tabstop=4
 autocmd BufRead *.py set shiftwidth=4
@@ -232,22 +229,16 @@ autocmd BufRead *.htmldjango set smarttab
 autocmd BufRead *.htmldjango set expandtab
 autocmd BufRead *.htmldjango set softtabstop=2
 autocmd BufRead *.htmldjango set autoindent
+
+endif " has("autocmd")
 " }}}
 
-" {{{ undo/redo
-if isdirectory(expand("~/.vim/undo"))
-    if v:version >= 703
-        set undofile
-        set undolevels=1000 "maximum number of changes that can be undone
-        set undoreload=10000 "maximum number lines to save for undo on a
-"       buffer reload
-        set undodir=~/.vim/undo
-    endif
-endif
+" {{{ .swp
+set backupdir=~/.cache/vim/swp
 
-" swapfile location
-if isdirectory(expand("~/.vim/swp"))
-    set backupdir=~/.vim/swp
+let targetdir=expand('~/.cache/vim/swp')
+if isdirectory(targetdir) != 1 && getftype(targetdir) == "" && exists("*mkdir")
+    call mkdir(targetdir, "p", 0700)
 endif
 " }}}
 
@@ -279,8 +270,7 @@ set hlsearch            " Highlight search results
 set mouse=a		" Enable mouse usage (all modes)
 set nocp		" Less compatibility
 
-"Commented out - Don't override gmrls setting.
-"set listchars=trail:~,eol:$,nbsp:_,tab:>\      "
+set listchars=trail:~,eol:$,nbsp:_,tab:>\      "
 
 set statusline=%<%F%h%m%r%h%w%y\ %{&ff}\ %{strftime(\"%c\",getftime(expand(\"%:p\")))}%=\ lin:%l\,%L\ col:%c%V\ pos:%o\ ascii:%b\ %P
 set laststatus=2
