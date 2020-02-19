@@ -20,3 +20,18 @@ fi
 if [ -x /usr/bin/apt-get ]; then
 	sort ~/.config/yadm/pkglist-apt.txt | xargs sudo apt-get install
 fi
+
+read -p "Install neoqwertz layout? [Yn] " -n 1 -r
+echo
+if [[ $REPLY =~ ^[Yy]?$ ]]; then
+	dir="$HOME/.config/neoqwertz"
+
+	if [ ! -d $dir ]; then
+		git clone https://github.com/andreas-hofmann/neoqwertz.git $dir
+	else
+		( cd $dir && git pull )
+	fi
+
+	sudo cp -rv ~/.config/neoqwertz/xkb /usr/share/X11 && \
+		echo "Done. Use qwer() to activate the layout."
+fi
