@@ -233,10 +233,15 @@ autocmd BufRead *.htmldjango set autoindent
 endif " has("autocmd")
 " }}}
 
-" {{{ .swp
-set backupdir=~/.cache/vim/swp
-
+" {{{ swp + backup dirs
+set directory=~/.cache/vim/swp
 let targetdir=expand('~/.cache/vim/swp')
+if isdirectory(targetdir) != 1 && getftype(targetdir) == "" && exists("*mkdir")
+    call mkdir(targetdir, "p", 0700)
+endif
+
+set backupdir=~/.cache/vim/bak
+let targetdir=expand('~/.cache/vim/bak')
 if isdirectory(targetdir) != 1 && getftype(targetdir) == "" && exists("*mkdir")
     call mkdir(targetdir, "p", 0700)
 endif
