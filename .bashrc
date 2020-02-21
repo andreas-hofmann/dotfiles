@@ -2,6 +2,19 @@
 # ~/.bashrc
 #
 
+#{{{ Fetch .inputrc, if it doesn't exist.
+
+if [ ! -r ~/.inputrc ]; then
+	url="https://github.com/andreas-hofmann/dotfiles/raw/master"
+
+	echo "Fetching .inputrc..."
+	curl --progress-bar -L $url/.inputrc		> $HOME/.inputrc
+
+	unset url
+fi
+
+#}}}
+
 #{{{ sensible.bash - taken from https://github.com/mrzool/bash-sensible
 
 # Sensible Bash - An attempt at saner Bash defaults
