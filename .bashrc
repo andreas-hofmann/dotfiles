@@ -269,3 +269,34 @@ ex ()
     echo "'$1' is not a valid file"
   fi
 }
+
+#}}}
+
+#{{{ Custom stuff goes here.
+
+# Alias vi to gvim when running on a display
+export EDITOR='vim'
+if [[ -n $DISPLAY ]]; then
+  alias vi='gvim &> /dev/null'
+else
+  alias vi='vim'
+fi
+
+# More aliases
+alias ls='ls --color=auto -lh'
+alias la='ls --color=auto -lha'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias df='df -h'
+alias du='du -h'
+
+alias asdf='setxkbmap de adnw'
+alias hiea='setxkbmap de neoqwertz'
+alias qwer='setxkbmap de neoqwertz'
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+#}}}
