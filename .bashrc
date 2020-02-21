@@ -312,4 +312,15 @@ alias qwer='setxkbmap de neoqwertz'
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
+# Prompt override
+
+host_color=$green
+test -n "$SSH_CONNECTION" && host_color=$red
+user_color=$green
+test `id -u` = 0 && user_color=$red
+shell_symbol='\$'
+test `id -u` = 0 && shell_symbol="#"
+
+PS1="$user_color\u$darkgray@$host_color\h\[$lightgray\] \w \[$darkgray\]$shell_symbol\[\033[00m\] "
+
 #}}}
