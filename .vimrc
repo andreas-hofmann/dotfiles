@@ -24,7 +24,7 @@ endif
 "" {{{ Fetch + source the grml vimrc
 let grmlrc=expand('~/.vimrc.grml')
 if !filereadable(grmlrc)
-    echo "Fetching zshrc.grml..."
+    echo "Fetching vimrc.grml..."
     echo ""
     silent !curl -L https://github.com/andreas-hofmann/dotfiles/raw/master/.vimrc.grml > ~/.vimrc.grml
 endif
