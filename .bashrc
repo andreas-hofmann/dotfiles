@@ -323,4 +323,23 @@ test `id -u` = 0 && shell_symbol="#"
 
 PS1="$user_color\u$darkgray@$host_color\h\[$lightgray\] \w \[$darkgray\]$shell_symbol\[\033[00m\] "
 
+# Function to update config.
+function bootstrap {
+	echo "Updating..."
+
+	mkdir -p $HOME/.zsh
+
+	local url="https://github.com/andreas-hofmann/dotfiles/raw/master"
+
+	echo "Fetching .inputrc..."
+	curl --progress-bar -L $url/.inputrc		>| $HOME/.inputrc
+	echo "Updating .bash_logout..."
+	curl --progress-bar -L $url/.bash_logout	>| $HOME/.bash_logout
+
+	echo "Updating .bashrc..."
+	curl --progress-bar -L $url/.bashrc		>| $HOME/.bashrc
+
+	echo "Done. Restart the shell!"
+}
+
 #}}}
