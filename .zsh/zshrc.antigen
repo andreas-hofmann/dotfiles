@@ -26,6 +26,12 @@ antigen bundle gitfast
 #antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zdharma/fast-syntax-highlighting
 
+# Autosuggestions-plugin
+antigen bundle zsh-users/zsh-autosuggestions
+
+# navigationtools-plugin
+antigen bundle psprint/zsh-navigation-tools
+
 # Load the theme.
 antigen theme romkatv/powerlevel10k
 
@@ -52,5 +58,16 @@ bindkey -M vicmd 'j' history-substring-search-down
 # Recursive searching through history
 bindkey '^R' history-incremental-search-backward
 bindkey '^F' history-incremental-search-forward
+
+# }}}
+
+# {{{ zsh-navigation-tools bindings (partially overrides history-search bindings)
+
+zle -N znt-history-widget
+bindkey "^R" znt-history-widget
+zle -N znt-cd-widget
+bindkey "^B" znt-cd-widget
+zle -N znt-kill-widget
+bindkey "^Y" znt-kill-widget
 
 # }}}
