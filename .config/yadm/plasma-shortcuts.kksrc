@@ -1,5 +1,22 @@
 [ActivityManager][Global Shortcuts]
-switch-to-activity-aa9617bc-62b6-4e89-aa68-3e44aad4dea2=none
+switch-to-activity-ffffffff-ffff-4fff-bfff-ffffffffffff=none
+
+[firefox.desktop][Global Shortcuts]
+_launch=Meta+F
+new-private-window=none
+new-window=none
+
+[juk][Global Shortcuts]
+back=Ctrl+Alt+Left
+forward=Ctrl+Alt+Right
+forwardAlbum=Ctrl+Alt+Up
+mute=Ctrl+Alt+M
+playPause=Ctrl+Alt+P
+seekBack=Ctrl+Alt+Shift+Left
+seekForward=Ctrl+Alt+Shift+Right
+stop=Ctrl+Alt+S
+volumeDown=Ctrl+Alt+Shift+Down
+volumeUp=Ctrl+Alt+Shift+Up
 
 [kaccess][Global Shortcuts]
 Toggle Screen Reader On and Off=Meta+Alt+S
@@ -12,8 +29,8 @@ Switch keyboard layout to neoqwertz=none
 Switch to Next Keyboard Layout=none
 Toggle Touchpad=Touchpad Toggle
 display=Display; Meta+P
-{32221a98-acb7-4aee-a5c3-c786caa68bce}=Meta+Return
 {d03619b6-9b3c-48cc-9d9c-a2aadb485550}=none
+{ffffffff-ffff-4fff-bfff-ffffffffffff}=none
 
 [kmix][Global Shortcuts]
 decrease_microphone_volume=Microphone Volume Down
@@ -23,13 +40,17 @@ increase_volume=Volume Up
 mic_mute=Microphone Mute
 mute=Volume Mute
 
+[konversation][Global Shortcuts]
+next_active_tab=none
+toggle_mainwindow_visibility=none
+
 [krunner.desktop][Global Shortcuts]
 RunClipboard=Alt+Shift+F2
 _launch=Meta+Space; Alt+F2; Search
 
 [ksmserver][Global Shortcuts]
 Halt Without Confirmation=Ctrl+Alt+Shift+PgDown
-Lock Session=Ctrl+Alt+Del
+Lock Session=Ctrl+Alt+Del; ; Screensaver
 Log Out=Ctrl+Alt+Shift+Del
 Log Out Without Confirmation=none
 Reboot Without Confirmation=Ctrl+Alt+Shift+PgUp
@@ -40,6 +61,8 @@ Decrease Opacity=none
 Expose=Ctrl+F9
 ExposeAll=Ctrl+F10; Launch (C)
 ExposeClass=Ctrl+F7
+FlipSwitchAll=none
+FlipSwitchCurrent=none
 Increase Opacity=none
 Invert Screen Colors=none
 Kill Window=Meta+Ctrl+Shift+C
@@ -178,6 +201,7 @@ Window to Screen 4=none
 Window to Screen 5=none
 Window to Screen 6=none
 Window to Screen 7=none
+WindowGeometry=none
 view_actual_size=none
 view_zoom_in=Meta+=
 view_zoom_out=Meta+-
@@ -192,6 +216,14 @@ stopmedia=Media Stop
 
 [org.kde.dolphin.desktop][Global Shortcuts]
 _launch=Meta+E
+
+[org.kde.konsole.desktop][Global Shortcuts]
+NewTab=none
+NewWindow=none
+_launch=Meta+Return
+
+[org.kde.plasma.emojier.desktop][Global Shortcuts]
+_launch=Meta+.
 
 [org.kde.spectacle.desktop][Global Shortcuts]
 ActiveWindowScreenShot=none
@@ -222,7 +254,10 @@ activate task manager entry 6=Meta+6
 activate task manager entry 7=Meta+7
 activate task manager entry 8=Meta+8
 activate task manager entry 9=Meta+9
-activate widget 23=Meta+A
+activate widget 15=none
+activate widget 20=none
+activate widget 29=Alt+F1
+activate widget 34=none
 clear-history=none
 clipboard_action=Ctrl+Alt+X
 cycleNextAction=none
@@ -236,13 +271,6 @@ show dashboard=Ctrl+F12
 show-barcode=none
 show-on-mouse-pos=none
 stop current activity=Meta+S
-
-[wacomtablet][Global Shortcuts]
-Map to fullscreen=Meta+Ctrl+F
-Map to screen 1=Meta+Ctrl+1
-Map to screen 2=Meta+Ctrl+2
-Next Profile=none
-Previous Profile=Meta+Ctrl+P
-Toggle screen map selection=none
-Toggle stylus mode=Meta+Ctrl+S
-Toggle touch tool=Meta+Ctrl+T
+switch to next activity=none
+switch to previous activity=none
+toggle do not disturb=none
