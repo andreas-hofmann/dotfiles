@@ -36,6 +36,7 @@ intel-ucode
 iproute2
 iptables
 iputils
+keepassxc
 keynav
 less
 libva-intel-driver

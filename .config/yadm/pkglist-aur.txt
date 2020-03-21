@@ -6,7 +6,6 @@ grml-rescueboot
 ledger-udev
 megasync
 ocrmypdf
-opencl-amd
+#opencl-amd
 packup
-pam_mount-git
 yadm
