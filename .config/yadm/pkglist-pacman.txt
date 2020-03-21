@@ -1,4 +1,5 @@
 amd-ucode
+appimagelauncher
 bash
 borg
 brave
@@ -37,6 +38,7 @@ iproute2
 iptables
 iputils
 keepassxc
+keybase
 keynav
 less
 libva-intel-driver
