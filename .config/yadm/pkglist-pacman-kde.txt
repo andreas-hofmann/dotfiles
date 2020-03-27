@@ -3,4 +3,5 @@ kdebase-meta
 kdepim-meta
 kdepim-addons
 kdeutils-meta
+plasma-browser-integration
 plasma-ssh-agent

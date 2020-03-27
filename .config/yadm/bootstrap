@@ -21,6 +21,10 @@ if [ -x /usr/bin/apt-get ]; then
 	sort ~/.config/yadm/pkglist-apt.txt | xargs sudo apt-get install
 fi
 
+if [ -x /usr/bin/dnf ]; then
+	sort ~/.config/yadm/pkglist-dnf.txt | xargs sudo dnf install
+fi
+
 read -p "Install neoqwertz layout? [Yn] " -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]?$ ]]; then
