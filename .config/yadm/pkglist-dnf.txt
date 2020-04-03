@@ -13,7 +13,6 @@ diffutils
 digikam
 direnv
 ecryptfs-utils
-exfat-utils
 f2fs-tools
 file
 findutils
