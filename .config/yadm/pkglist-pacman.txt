@@ -6,6 +6,7 @@ brave
 bridge-utils
 btrfs-progs
 bwm-ng
+byobu
 bzip2
 clinfo
 code

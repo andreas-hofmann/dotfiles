@@ -2,6 +2,7 @@ bash
 borgbackup
 btrfs-progs
 bwm-ng
+byobu
 bzip2
 clinfo
 colord-kde
