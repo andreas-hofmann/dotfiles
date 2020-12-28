@@ -323,6 +323,10 @@ test `id -u` = 0 && shell_symbol="#"
 
 PS1="$user_color\u$darkgray@$host_color\h\[$lightgray\] \w \[$darkgray\]$shell_symbol\[\033[00m\] "
 
+if [ -f ~/.pathrc ]; then
+	. ~/.pathrc
+fi
+
 # Function to update config.
 function bootstrap {
 	echo "Updating..."

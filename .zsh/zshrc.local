@@ -149,4 +149,12 @@ zle -N mquote && bindkey '^q' mquote
 
 # }}}
 
+# {{{ .pathrc
+#
+if [ -f ~/.pathrc ]; then
+	. ~/.pathrc
+fi
+
+# }}}
+
 # vim: set fenc=utf-8 sw=4 sts=4 et foldmethod=marker :
