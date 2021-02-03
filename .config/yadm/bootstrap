@@ -3,26 +3,26 @@
 echo "Installing package selection..."
 
 if [ -x /usr/sbin/pacman ]; then
-	sudo pacman -S --needed $(comm -12 <(pacman -Slq | sort) <(sort ~/.config/yadm/pkglist-pacman.txt))
+	sudo pacman -S --noconfirm --needed $(comm -12 <(pacman -Slq | sort) <(sort ~/.config/yadm/pkglist-pacman.txt))
 
 	read -p "Install KDE packages? [Yn] " -n 1 -r
 	echo
 	if [[ $REPLY =~ ^[Yy]?$ ]]; then
-		sudo pacman -S --needed $(comm -12 <(pacman -Slq | sort) <(sort ~/.config/yadm/pkglist-pacman-kde.txt))
+		sudo pacman -S --noconfirm --needed $(comm -12 <(pacman -Slq | sort) <(sort ~/.config/yadm/pkglist-pacman-kde.txt))
 	fi
 fi
 
 if [ -x /usr/sbin/yay ]; then
-	echo "Install aur packages like this:"
+	echo "Install AUR packages like this:"
 	echo -e "    yay -S --needed - <(sort ~/.config/yadm/pkglist-aur.txt)"
 fi
 
 if [ -x /usr/bin/apt-get ]; then
-	sort ~/.config/yadm/pkglist-apt.txt | xargs sudo apt-get install
+	sort ~/.config/yadm/pkglist-apt.txt | xargs sudo apt-get install -y
 fi
 
 if [ -x /usr/bin/dnf ]; then
-	sort ~/.config/yadm/pkglist-dnf.txt | xargs sudo dnf install
+	sort ~/.config/yadm/pkglist-dnf.txt | xargs sudo dnf install -y
 fi
 
 read -p "Install neoqwertz layout? [Yn] " -n 1 -r
