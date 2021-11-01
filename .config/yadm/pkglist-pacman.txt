@@ -2,7 +2,6 @@ amd-ucode
 appimagelauncher
 bash
 borg
-brave
 bridge-utils
 btrfs-progs
 bwm-ng
@@ -15,10 +14,8 @@ coreutils
 cpupower
 cronie
 cryptsetup
-darktable
 dfc
 diffutils
-digikam
 displaycal
 dnsmasq
 ebtables
@@ -64,16 +61,12 @@ pdftk
 ps_mem
 python-llfuse
 qemu
-rawtherapee
 ripgrep
 rsync
 sed
 sshfs
 sshuttle
 spectre-meltdown-checker
-tesseract
-tesseract-data-deu
-tesseract-data-eng
 tig
 tmux
 traceroute

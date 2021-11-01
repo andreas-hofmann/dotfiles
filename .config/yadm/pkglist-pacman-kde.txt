@@ -1,4 +1,5 @@
 colord-kde
+digikam
 kdebase-meta
 kdepim-meta
 kdepim-addons
