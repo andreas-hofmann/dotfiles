@@ -304,7 +304,7 @@ alias egrep='egrep --color=auto'
 alias df='df -h'
 alias du='du -h'
 
-alias asdf='setxkbmap de adnw'
+alias yxcv='setxkbmap de adnw'
 alias hiea='setxkbmap de neoqwertz'
 alias qwer='setxkbmap de neoqwertz'
 
@@ -343,6 +343,12 @@ function bootstrap {
 	echo "Updating .bashrc..."
 	curl --progress-bar -L $url/.bashrc		>| $HOME/.bashrc
 
+	git --version &> /dev/null
+	if [ $? -eq 0 -a ! -d ~/.asdf ]; then
+		echo "Installing asdf..."
+		git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.11.3
+	fi
+
 	echo "Done. Restart the shell!"
 }
 
@@ -352,5 +358,12 @@ function bootstrap {
 #
 if [ -x /usr/bin/keychain ]; then
     /usr/bin/keychain -q --nogui && source $HOME/.keychain/$HOSTNAME-sh
+fi
+# }}}
+
+# {{{ asdf
+if [ -f "$HOME/.asdf/asdf.sh" ]; then
+    . "$HOME/.asdf/asdf.sh"
+    . "$HOME/.asdf/completions/asdf.bash"
 fi
 # }}}
