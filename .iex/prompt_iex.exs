@@ -7,7 +7,7 @@ IEx.configure(
   default_prompt:
     [
       # ANSI CHA, move cursor to column 1
-      "\e[G",
+      #"\e[G",
       # This is default prefix like iex
       # "%prefix",
       # custom symbols if you need play with them
