@@ -1,0 +1,105 @@
+# common startup script for bash & zsh.
+
+# {{{ Ensure private bin dirs are there
+mkdir -p $HOME/.bin
+mkdir -p $HOME/.local/bin
+# }}}
+
+# {{{ Setup PATH
+
+PATH=$HOME/.bin:$HOME/.local/bin:$HOME/go/bin:$HOME/.nimble/bin/:$PATH
+
+BREW="/home/linuxbrew/.linuxbrew/bin/brew"
+if [ -x $BREW ]; then
+	eval "$($BREW shellenv)"
+fi
+unset BREW
+
+# }}}
+
+## {{{ Aliases
+
+alias ls='ls --color=auto -lh'
+alias la='ls --color=auto -lha'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias df='df -h'
+alias du='du -h'
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# get top 10 shell commands:
+alias top10='print -l ${(o)history%% *} | uniq -c | sort -nr | head -n 10'
+
+# Alias vi to gvim when running on a display
+export EDITOR='vim'
+if [[ -n $DISPLAY ]]; then
+  alias vi='gvim &> /dev/null'
+else
+  alias vi='vim'
+fi
+
+# }}}
+
+#{{{ Color definitions
+black='\e[0;30m'
+blue='\e[0;34m'
+green='\e[0;32m'
+cyan='\e[0;36m'
+red='\e[0;31m'
+purple='\e[0;35m'
+brown='\e[0;33m'
+lightgray='\e[0;37m'
+darkgray='\e[1;30m'
+lightblue='\e[1;34m'
+lightgreen='\e[1;32m'
+lightcyan='\e[1;36m'
+lightred='\e[1;31m'
+lightpurple='\e[1;35m'
+yellow='\e[1;33m'
+white='\e[1;37m'
+nc='\e[0m'
+#}}}
+
+# {{{ keychain
+#
+if [ -x /usr/bin/keychain ]; then
+    /usr/bin/keychain -q --nogui && source $HOME/.keychain/$HOSTNAME-sh
+fi
+# }}}
+
+# {{{ some install functions
+
+function install_brew {
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+}
+
+function install_yadm {
+	curl -fLo $HOME/.bin/yadm https://github.com/TheLocehiliosan/yadm/raw/master/yadm && chmod a+x $HOME/.bin/yadm
+}
+
+function install_asdf {
+	git --version &> /dev/null
+	if [ $? -eq 0 -a ! -d ~/.asdf ]; then
+		echo "Installing asdf..."
+		git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.11.3
+	fi
+}
+
+# }}}
+
+# {{{ Some helpers
+function ask_yes {
+	read -p "$1 [Yn] " -n 1 -r
+	echo
+	if [[ $REPLY =~ ^[Yy]?$ ]]; then
+		return 0
+	else
+		return 1
+	fi
+}
+
+# }}}

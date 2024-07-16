@@ -2,19 +2,6 @@
 # ~/.bashrc
 #
 
-#{{{ Fetch .inputrc, if it doesn't exist.
-
-if [ ! -r ~/.inputrc ]; then
-	url="https://github.com/andreas-hofmann/dotfiles/raw/master"
-
-	echo "Fetching .inputrc..."
-	curl --progress-bar -L $url/.inputrc		> $HOME/.inputrc
-
-	unset url
-fi
-
-#}}}
-
 #{{{ sensible.bash - taken from https://github.com/mrzool/bash-sensible
 
 # Sensible Bash - An attempt at saner Bash defaults
@@ -123,26 +110,6 @@ shopt -s cdable_vars
 # export documents="$HOME/Documents"
 # export dropbox="$HOME/Dropbox"
 
-#}}}
-
-#{{{ Color definitions
-black='\e[0;30m'
-blue='\e[0;34m'
-green='\e[0;32m'
-cyan='\e[0;36m'
-red='\e[0;31m'
-purple='\e[0;35m'
-brown='\e[0;33m'
-lightgray='\e[0;37m'
-darkgray='\e[1;30m'
-lightblue='\e[1;34m'
-lightgreen='\e[1;32m'
-lightcyan='\e[1;36m'
-lightred='\e[1;31m'
-lightpurple='\e[1;35m'
-yellow='\e[1;33m'
-white='\e[1;37m'
-nc='\e[0m'
 #}}}
 
 #{{{ Manjaro default bashrc.
@@ -287,30 +254,7 @@ ex ()
 
 #{{{ Custom stuff goes here.
 
-# Alias vi to gvim when running on a display
-export EDITOR='vim'
-if [[ -n $DISPLAY ]]; then
-  alias vi='gvim &> /dev/null'
-else
-  alias vi='vim'
-fi
-
-# More aliases
-alias ls='ls --color=auto -lh'
-alias la='ls --color=auto -lha'
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
-alias df='df -h'
-alias du='du -h'
-
-alias yxcv='setxkbmap de adnw'
-alias hiea='setxkbmap de neoqwertz'
-alias qwer='setxkbmap de neoqwertz'
-
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+source ${HOME}/.shellrc
 
 # Prompt override
 
@@ -321,11 +265,18 @@ test `id -u` = 0 && user_color=$red
 shell_symbol='\$'
 test `id -u` = 0 && shell_symbol="#"
 
-PS1="$user_color\u$darkgray@$host_color\h\[$lightgray\] \w \[$darkgray\]$shell_symbol\[\033[00m\] "
-
-if [ -f ~/.pathrc ]; then
-	. ~/.pathrc
+if [ -n "$(which oh-my-posh)" ]; then
+	eval "$(oh-my-posh init bash --config=~/.config/oh-my-posh/config.omp.json)"
+else
+	PS1="$user_color\u$darkgray@$host_color\h\[$lightgray\] \w \[$darkgray\]$shell_symbol\[\033[00m\] "
 fi
+
+# {{{ asdf
+if [ -f "$HOME/.asdf/asdf.sh" ]; then
+    . "$HOME/.asdf/asdf.sh"
+    . "$HOME/.asdf/completions/asdf.bash"
+fi
+# }}}
 
 # Function to update config.
 function bootstrap {
@@ -337,33 +288,15 @@ function bootstrap {
 
 	echo "Fetching .inputrc..."
 	curl --progress-bar -L $url/.inputrc		>| $HOME/.inputrc
+	echo "Fetching .shellrc..."
+	curl --progress-bar -L $url/.shellrc		>| $HOME/.shellrc
 	echo "Updating .bash_logout..."
 	curl --progress-bar -L $url/.bash_logout	>| $HOME/.bash_logout
 
 	echo "Updating .bashrc..."
 	curl --progress-bar -L $url/.bashrc		>| $HOME/.bashrc
 
-	git --version &> /dev/null
-	if [ $? -eq 0 -a ! -d ~/.asdf ]; then
-		echo "Installing asdf..."
-		git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.11.3
-	fi
-
 	echo "Done. Restart the shell!"
 }
 
 #}}}
-
-# {{{ keychain
-#
-if [ -x /usr/bin/keychain ]; then
-    /usr/bin/keychain -q --nogui && source $HOME/.keychain/$HOSTNAME-sh
-fi
-# }}}
-
-# {{{ asdf
-if [ -f "$HOME/.asdf/asdf.sh" ]; then
-    . "$HOME/.asdf/asdf.sh"
-    . "$HOME/.asdf/completions/asdf.bash"
-fi
-# }}}

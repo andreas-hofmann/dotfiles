@@ -59,37 +59,6 @@ bindkey '\e.' insert-last-word
 
 # }}}
 
-## {{{ Aliases
-
-alias ls='ls --color=auto -lh'
-alias la='ls --color=auto -lha'
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
-alias df='df -h'
-alias du='du -h'
-
-alias yxcv='setxkbmap de adnw'
-alias hiea='setxkbmap de neoqwertz'
-alias qwer='setxkbmap de neoqwertz'
-
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
-# get top 10 shell commands:
-alias top10='print -l ${(o)history%% *} | uniq -c | sort -nr | head -n 10'
-
-# Alias vi to gvim when running on a display
-export EDITOR='vim'
-if [[ -n $DISPLAY ]]; then
-  alias vi='gvim &> /dev/null'
-else
-  alias vi='vim'
-fi
-
-# }}}
-
 ## {{{ Functions
 
 # Switching shell safely and efficiently? http://www.zsh.org/mla/workers/2001/msg02410.html
@@ -147,21 +116,6 @@ mquote () {
 }
 zle -N mquote && bindkey '^q' mquote
 
-# }}}
-
-# {{{ .pathrc
-#
-if [ -f ~/.pathrc ]; then
-	. ~/.pathrc
-fi
-
-# }}}
-
-# {{{ keychain
-#
-if [ -x /usr/bin/keychain ]; then
-    /usr/bin/keychain -q --nogui && source $HOME/.keychain/$HOST-sh
-fi
 # }}}
 
 # {{{ asdf

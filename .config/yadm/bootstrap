@@ -1,44 +1,24 @@
 #!/bin/bash
 
-echo "Installing package selection..."
-
-if [ -x /usr/sbin/pacman ]; then
-	sudo pacman -S --noconfirm --needed $(comm -12 <(pacman -Slq | sort) <(sort ~/.config/yadm/pkglist-pacman.txt))
-
-	read -p "Install KDE packages? [Yn] " -n 1 -r
+function ask_yes {
+	read -p "$1 [Yn] " -n 1 -r
 	echo
 	if [[ $REPLY =~ ^[Yy]?$ ]]; then
-		sudo pacman -S --noconfirm --needed $(comm -12 <(pacman -Slq | sort) <(sort ~/.config/yadm/pkglist-pacman-kde.txt))
+		return 0
+	else
+		return 1
 	fi
-fi
-
-if [ -x /usr/sbin/yay ]; then
-	echo "Install AUR packages like this:"
-	echo -e "    yay -S --needed - <(sort ~/.config/yadm/pkglist-aur.txt)"
-fi
+}
 
 if [ -x /usr/bin/apt-get ]; then
-	sort ~/.config/yadm/pkglist-apt.txt | xargs sudo apt-get install -y
+	ask_yes "Install package selection?" && \
+		sort ~/.config/yadm/pkglist.txt | xargs sudo apt-get install -y
 fi
 
 if [ -x /usr/bin/dnf ]; then
-	sort ~/.config/yadm/pkglist-dnf.txt | xargs sudo dnf install -y
+	ask_yes "Install package selection?" && \
+		sort ~/.config/yadm/pkglist.txt | xargs sudo dnf install -y
 fi
 
 echo "Updating font-cache..."
 fc-cache -fv
-
-read -p "Install neoqwertz layout? [Yn] " -n 1 -r
-echo
-if [[ $REPLY =~ ^[Yy]?$ ]]; then
-	dir="$HOME/.config/neoqwertz"
-
-	if [ ! -d $dir ]; then
-		git clone https://github.com/andreas-hofmann/neoqwertz.git $dir
-	else
-		( cd $dir && git pull )
-	fi
-
-	sudo cp -rv ~/.config/neoqwertz/xkb /usr/share/X11 && \
-		echo "Done. Use qwer() to activate the layout."
-fi

@@ -229,7 +229,7 @@ set history=1000         " keep 50 lines of command history
 set ruler               " Show the cursor position all the time
 
 "Set colorscheme
-colorscheme ron
+colorscheme koehler
 
 "set showcmd		" Show (partial) command in status line.
 set showmatch		" Show matching brackets.

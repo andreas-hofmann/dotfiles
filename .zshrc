@@ -17,10 +17,12 @@ function bootstrap {
 
 	local url="https://github.com/andreas-hofmann/dotfiles/raw/master"
 
+	echo "Fetching .shellrc..."
+	curl --progress-bar -L $url/.shellrc		>| $HOME/.shellrc
 	echo "Fetching .zlogout..."
 	curl --progress-bar -L $url/.zlogout		> $HOME/.zlogout
 	echo "Fetching .p10k.zsh..."
-	curl --progress-bar -L $url/.p10k.zsh		> $HOME/.p10k.zsh
+	curl --progress-bar -L $url/.zsh/p10k.zsh	> $HOME/.zsh/p10k.zsh
 	echo "Fetching .zsh/zshrc.local..."
 	curl --progress-bar -L $url/.zsh/zshrc.local	> $HOME/.zsh/zshrc.local
 	echo "Fetching .zsh/zshrc.antigen..."
@@ -57,6 +59,8 @@ else
 
 	source ${HOME}/.zsh/zshrc.antigen
 
+	source ${HOME}/.shellrc
+
 	source ${HOME}/.zsh/zshrc.local
 
 	if [ -x /usr/bin/direnv ]; then
@@ -67,4 +71,4 @@ fi
 # }}}
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[[ ! -f ~/.zsh/p10k.zsh ]] || source ~/.zsh/p10k.zsh
