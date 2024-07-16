@@ -1,0 +1,17 @@
+[color]
+	ui = auto
+[user]
+	email = andreas.hofmann@solectrix.de
+	name = Andreas Hofmann
+[push]
+	default = simple
+[core]
+	editor = vim
+[log]
+	decorate = auto
+[credential]
+	helper = cache
+[pull]
+	rebase = false
+
+# vim: set ts=8 noet :
