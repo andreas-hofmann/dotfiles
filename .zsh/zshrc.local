@@ -57,6 +57,38 @@ bindkey -v
 # Restore default ALT+. behaviour
 bindkey '\e.' insert-last-word
 
+# {{{ Recursive history search
+
+# bind UP and DOWN arrow keys
+zmodload zsh/terminfo
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
+# same for ubuntu
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+# bind P and N for EMACS mode
+bindkey -M emacs '^P' history-substring-search-up
+bindkey -M emacs '^N' history-substring-search-down
+# bind k and j for VI mode
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
+# Recursive searching through history
+bindkey '^R' history-incremental-search-backward
+bindkey '^F' history-incremental-search-forward
+
+# }}}
+
+# {{{ zsh-navigation-tools bindings (partially overrides history-search bindings)
+
+zle -N znt-history-widget
+bindkey "^R" znt-history-widget
+zle -N znt-cd-widget
+bindkey "^B" znt-cd-widget
+zle -N znt-kill-widget
+bindkey "^Y" znt-kill-widget
+
+# }}}
+
 # }}}
 
 ## {{{ Functions
@@ -118,7 +150,7 @@ zle -N mquote && bindkey '^q' mquote
 
 # }}}
 
-# {{{ asdf
+# {{{ asdf package manager
 if [ -f "$HOME/.asdf/asdf.sh" ]; then
     . "$HOME/.asdf/asdf.sh"
 

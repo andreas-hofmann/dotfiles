@@ -36,7 +36,7 @@ alias top10='print -l ${(o)history%% *} | uniq -c | sort -nr | head -n 10'
 
 # Alias vi to gvim when running on a display
 export EDITOR='vim'
-if [[ -n $DISPLAY ]]; then
+if [ -n "$DISPLAY" -a -n "$(which gvim 2> /dev/null)" ]; then
   alias vi='gvim &> /dev/null'
 else
   alias vi='vim'

@@ -2,6 +2,11 @@
 # ~/.bashrc
 #
 
+# Allow machine-local settings. This file is in .gitignore.
+if [ -f ~/.shell.local ]; then
+	source ~/.shell.local
+fi
+
 #{{{ sensible.bash - taken from https://github.com/mrzool/bash-sensible
 
 # Sensible Bash - An attempt at saner Bash defaults
@@ -258,25 +263,26 @@ source ${HOME}/.shellrc
 
 # Prompt override
 
-host_color=$green
-test -n "$SSH_CONNECTION" && host_color=$red
-user_color=$green
-test `id -u` = 0 && user_color=$red
-shell_symbol='\$'
-test `id -u` = 0 && shell_symbol="#"
+USE_OMP=${USE_OMP:-0}
+OMP_CONF="$HOME/.config/oh-my-posh/config.omp.json"
 
-if [ -n "$(which oh-my-posh)" ]; then
-	eval "$(oh-my-posh init bash --config=~/.config/oh-my-posh/config.omp.json)"
+__rightprompt()
+{
+	printf "%*s" $(( $(tput cols) + 9 )) "$brown$(date +%r) "
+}
+
+if [ $USE_OMP -ne 0 -a -n "$(which oh-my-posh)" -a -f "$OMP_CONF" ]; then
+	eval "$(oh-my-posh init bash --config=$OMP_CONF)"
 else
-	PS1="$user_color\u$darkgray@$host_color\h\[$lightgray\] \w \[$darkgray\]$shell_symbol\[\033[00m\] "
-fi
+	host_color=$green
+	test -n "$SSH_CONNECTION" && host_color=$red
+	user_color=$green
+	test `id -u` = 0 && user_color=$red
+	shell_symbol='\$'
+	test `id -u` = 0 && shell_symbol="#"
 
-# {{{ asdf
-if [ -f "$HOME/.asdf/asdf.sh" ]; then
-    . "$HOME/.asdf/asdf.sh"
-    . "$HOME/.asdf/completions/asdf.bash"
+	PROMPT_COMMAND="PS1='\[$(tput sc; __rightprompt; tput rc)$user_color\u$darkgray@$host_color\h\[$lightgray\] \w \[$darkgray\]$shell_symbol\[\033[00m\] '"
 fi
-# }}}
 
 # Function to update config.
 function bootstrap {
@@ -300,3 +306,10 @@ function bootstrap {
 }
 
 #}}}
+
+# {{{ asdf package manager
+if [ -f "$HOME/.asdf/asdf.sh" ]; then
+    . "$HOME/.asdf/asdf.sh"
+    . "$HOME/.asdf/completions/asdf.bash"
+fi
+# }}}

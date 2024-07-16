@@ -5,7 +5,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Use grmls zshrc + antigen.
+# Allow machine-local settings. This file is in .gitignore.
+if [ -f ~/.shell.local ]; then
+	source ~/.shell.local
+fi
 
 # {{{ functions
 
