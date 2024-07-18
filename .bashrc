@@ -281,7 +281,7 @@ else
 	shell_symbol='\$'
 	test `id -u` = 0 && shell_symbol="#"
 
-	PROMPT_COMMAND="PS1='\[$(tput sc; __rightprompt; tput rc)$user_color\u$darkgray@$host_color\h\[$lightgray\] \w \[$darkgray\]$shell_symbol\[\033[00m\] '"
+	PROMPT_COMMAND="PS1='\[$(tput sc; __rightprompt; tput rc)$user_color\u$darkgray@$host_color\h\[$yellow\] \w \[$darkgray\]$shell_symbol\[\033[00m\] '"
 fi
 
 # Function to update config.
