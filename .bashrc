@@ -271,7 +271,7 @@ __rightprompt()
 	printf "%*s" $(( $(tput cols) + 9 )) "$brown$(date +%r) "
 }
 
-if [ $USE_OMP -ne 0 -a -n "$(which oh-my-posh)" -a -f "$OMP_CONF" ]; then
+if [ $USE_OMP -ne 0 -a -n "$(which oh-my-posh 2> /dev/null)" -a -f "$OMP_CONF" ]; then
 	eval "$(oh-my-posh init bash --config=$OMP_CONF)"
 else
 	host_color=$green
