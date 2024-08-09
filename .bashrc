@@ -266,11 +266,6 @@ source ${HOME}/.shellrc
 USE_OMP=${USE_OMP:-0}
 OMP_CONF="$HOME/.config/oh-my-posh/config.omp.json"
 
-__rightprompt()
-{
-	printf "%*s" $(( $(tput cols) + 9 )) "$brown$(date +%r) "
-}
-
 if [ $USE_OMP -ne 0 -a -n "$(which oh-my-posh 2> /dev/null)" -a -f "$OMP_CONF" ]; then
 	eval "$(oh-my-posh init bash --config=$OMP_CONF)"
 else
@@ -281,7 +276,7 @@ else
 	shell_symbol='\$'
 	test `id -u` = 0 && shell_symbol="#"
 
-	PROMPT_COMMAND="PS1='\[$(tput sc; __rightprompt; tput rc)$user_color\u$darkgray@$host_color\h\[$yellow\] \w \[$darkgray\]$shell_symbol\[\033[00m\] '"
+	PROMPT_COMMAND="PS1='\[$user_color\u$darkgray@$host_color\h\[$yellow\] \w \[$darkgray\]$shell_symbol\[\033[00m\] '"
 fi
 
 # Function to update config.
