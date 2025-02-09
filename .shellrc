@@ -67,7 +67,7 @@ nc='\e[0m'
 # {{{ keychain
 #
 if [ -x /usr/bin/keychain ]; then
-    /usr/bin/keychain -q --nogui && source $HOME/.keychain/$HOSTNAME-sh
+    /usr/bin/keychain -q --nogui && source $HOME/.keychain/$(hostname)-sh
 fi
 # }}}
 
