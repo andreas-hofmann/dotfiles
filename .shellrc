@@ -103,3 +103,9 @@ function ask_yes {
 }
 
 # }}}
+
+# {{{ Gnome keyring ssh socket
+if [ -S "$XDG_RUNTIME_DIR/gcr/ssh" ]; then
+	SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
+fi
+# }}}
