@@ -26,3 +26,5 @@
 	rebase = false
 
 # vim: set ts=8 noet :
+[init]
+	defaultBranch = main
