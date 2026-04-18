@@ -15,7 +15,7 @@ if [ -x $BREW ]; then
 fi
 unset BREW
 
-export ASDF_DATA_DIR="~/.asdf"
+export ASDF_DATA_DIR="$HOME/.asdf"
 export PATH="$ASDF_DATA_DIR/shims:$PATH"
 
 # }}}
@@ -86,7 +86,7 @@ function install_yadm {
 
 function install_asdf {
 	echo "Installing asdf..."
-	go install github.com/asdf-vm/asdf/cmd/asdf@v0.16.0
+	go install github.com/asdf-vm/asdf/cmd/asdf@v0.18.1
 }
 
 # }}}
