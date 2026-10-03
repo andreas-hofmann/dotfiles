@@ -86,7 +86,7 @@ function install_yadm {
 
 function install_asdf {
 	echo "Installing asdf..."
-	go install github.com/asdf-vm/asdf/cmd/asdf@v0.18.1
+	go install github.com/asdf-vm/asdf/cmd/asdf@v0.20.2
 }
 
 # }}}
