@@ -2,11 +2,6 @@
 # ~/.bashrc
 #
 
-# Allow machine-local settings. This file is in .gitignore.
-if [ -f ~/.shell.local ]; then
-	source ~/.shell.local
-fi
-
 #{{{ sensible.bash - taken from https://github.com/mrzool/bash-sensible
 
 # Sensible Bash - An attempt at saner Bash defaults
@@ -259,7 +254,9 @@ ex ()
 
 #{{{ Custom stuff goes here.
 
-source ${HOME}/.shellrc
+if [ -f ~/.shellrc ]; then
+	source ${HOME}/.shellrc
+fi
 
 # Prompt override
 
@@ -306,5 +303,11 @@ function bootstrap {
 if [ -f "$HOME/.asdf/asdf.sh" ]; then
     . "$HOME/.asdf/asdf.sh"
     . "$HOME/.asdf/completions/asdf.bash"
+fi
+# }}}
+
+# {{{ Allow machine-local settings. This file is in .gitignore.
+if [ -f ~/.shell.local ]; then
+	source ~/.shell.local
 fi
 # }}}

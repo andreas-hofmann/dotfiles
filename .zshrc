@@ -5,11 +5,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Allow machine-local settings. This file is in .gitignore.
-if [ -f ~/.shell.local ]; then
-	source ~/.shell.local
-fi
-
 # {{{ functions
 
 # Initial setup for zshrcs. Runs in a subshell.
@@ -71,6 +66,12 @@ else
 	fi
 fi
  
+# }}}
+
+# {{{ Allow machine-local settings. This file is in .gitignore.
+if [ -f ~/.shell.local ]; then
+	source ~/.shell.local
+fi
 # }}}
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
