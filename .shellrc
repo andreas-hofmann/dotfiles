@@ -109,3 +109,7 @@ if [ -S "$XDG_RUNTIME_DIR/gcr/ssh" ]; then
 	SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
 fi
 # }}}
+
+# {{{ use bat as man pager (if present)
+which bat &> /dev/null && export MANPAGER="bat -plman"
+# }}}
